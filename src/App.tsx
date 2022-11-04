@@ -1,16 +1,13 @@
-import React from 'react';
 import { Outlet } from 'react-router-dom';
-import './App.css';
 import Navigation from './components/navigation/Navigation';
 import RoutesList from './RoutesList';
 
 function App() {
   return (
-    <div className='App box-border font-body'>
+    <div
+      className={`min-h-screen text-primary-main box-border font-body bg-[image:url('./assets/background.jpg')] bg-center bg-no-repeat bg-cover bg-fixed`}
+    >
       <Navigation />
-      <h1 className='text-3xl font-bold font-heading underline'>
-        Hello world!
-      </h1>
       <RoutesList />
       <Outlet />
     </div>
