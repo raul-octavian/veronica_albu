@@ -8,7 +8,7 @@ type NavigationListProps = {
 
 const NavigationList: FC<NavigationListProps> = ({ onClickHandler }) => {
   return (
-    <div className='p-4 overflow-y-auto w-full md:w-1/2 h-screen bg-secondary'>
+    <div className='p-4 overflow-y-auto w-full md:w-1/2 h-screen bg-secondary-main'>
       <ul className='space-y-2'>
         {allRoutes.map((item) => (
           <li

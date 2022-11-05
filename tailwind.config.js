@@ -12,7 +12,10 @@ module.exports = {
         main: '#EEEEEE',
         soft: '#EEEEEE10',
       },
-      secondary: '#0b0b0b',
+      secondary: {
+        main: '#0b0b0b',
+        soft: '#0b0b0b9a',
+      },
       accent: {
         main: '#A27E40',
         soft: '#A27E409a',
@@ -23,6 +26,15 @@ module.exports = {
       success: '#4ade80',
       warning: '#fcd34d',
       error: '#f43f5e',
+    },
+    extend: {
+      flexGrow: {
+        2: 2,
+        3: 3,
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
