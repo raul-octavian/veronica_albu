@@ -5,7 +5,7 @@ import RoutesList from './RoutesList';
 function App() {
   return (
     <div
-      className={`min-h-screen text-primary-main box-border font-body bg-[image:url('./assets/background.jpg')] bg-center bg-no-repeat bg-cover bg-fixed`}
+      className={`min-h-screen text-primary-main box-border font-body bg-[image:url('./assets/background.jpg')] bg-center bg-no-repeat bg-cover bg-fixed w-screen`}
     >
       <Navigation />
       <RoutesList />
