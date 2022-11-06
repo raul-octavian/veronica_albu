@@ -5,6 +5,11 @@ type TextBoxHeaderProps = {
 };
 
 const TextBoxHeader: FC<TextBoxHeaderProps> = ({ children }) => {
-  return <div className='text-center text-2xl tracking-wider'> {children}</div>;
+  return (
+    <div className='text-center text-2xl tracking-wider capitalize'>
+      {' '}
+      {children}
+    </div>
+  );
 };
 export default TextBoxHeader;
