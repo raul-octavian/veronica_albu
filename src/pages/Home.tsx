@@ -9,6 +9,7 @@ import MappingSprancene from '../assets/eyebrow-mapping.png';
 import NailShapes from '../assets/nail-shape.png';
 import PhyLogoImage from '../assets/PhyLogo.png';
 import Cupio from '../assets/logo_cupio_black.png';
+import Carousel from '../components/Carousel';
 
 const Home = () => {
   return (
@@ -134,6 +135,7 @@ const Home = () => {
           <img src={Cupio} alt='logo' className='h-full' />
         </div>
       </TextBoxWithCtaAndImage>
+      <Carousel />
     </>
   );
 };

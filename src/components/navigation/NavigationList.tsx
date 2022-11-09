@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { allRoutes } from '../../RoutesList';
 
 type NavigationListProps = {
-  onClickHandler: (value: React.SetStateAction<boolean>) => void;
+  onClickHandler?: (value: React.SetStateAction<boolean>) => void;
 };
 
 const NavigationList: FC<NavigationListProps> = ({ onClickHandler }) => {
@@ -13,7 +13,7 @@ const NavigationList: FC<NavigationListProps> = ({ onClickHandler }) => {
         {allRoutes.map((item) => (
           <li
             key={item.name}
-            onClick={() => onClickHandler(false)}
+            onClick={() => (onClickHandler ? onClickHandler(false) : null)}
             className='group flex items-center hover:bg-primary-soft transform-all duration-300 lg:w-1/2 max-w-full rounded-md'
           >
             <Link

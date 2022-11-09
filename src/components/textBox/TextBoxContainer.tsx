@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 type TextBoxContainerProps = {
-  children: JSX.Element | JSX.Element[];
+  children?: JSX.Element | JSX.Element[];
 };
 
 const TextBoxContainer: FC<TextBoxContainerProps> = ({ children }) => {
