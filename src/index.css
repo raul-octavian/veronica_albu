@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --swiper-navigation-color: theme(colors.accent.main)
+  }
+
   body {
     overflow-x: hidden;
   }
