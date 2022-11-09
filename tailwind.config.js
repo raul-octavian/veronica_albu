@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/**/*.{js,jsx,ts,tsx}',
-    './node_modules/tw-elements/dist/js/**/*.js',
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
       body: "'Arapey', serif",
@@ -40,8 +37,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('tw-elements/dist/plugin'),
-  ],
+  plugins: [require('@tailwindcss/typography')],
 };
