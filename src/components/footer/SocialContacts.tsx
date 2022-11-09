@@ -50,13 +50,16 @@ const SocialContacts: FC = () => {
             <div className='h-8 w-8'>
               <img src={Insta} alt='instagram icon' className='h-full w-full' />
             </div>
-            <span className='ml-4 underline'>
-              https://www.instagram.com/veronica_avian/
+            <span
+              className='ml-4 underline text-clip'
+              title='https://www.instagram.com/veronica_avian/ '
+            >
+              Instagram
             </span>
           </li>
         </a>
         <a
-          href='https://www.facebook.com/veronica.albu'
+        href='https://www.facebook.com/veronica.albu'
           target='_blank'
           rel='noreferrer'
         >
@@ -68,8 +71,11 @@ const SocialContacts: FC = () => {
                 className='h-full w-full'
               />
             </div>
-            <span className='ml-4 underline'>
-              https://www.facebook.com/veronica.albu
+            <span
+              className='ml-4 underline'
+              title='https://www.facebook.com/veronica.albu'
+            >
+              Facebook
             </span>
           </li>
         </a>

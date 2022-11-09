@@ -15,7 +15,7 @@ const NavigationDrawer: FC<NavigationDrawerProps> = ({
   return (
     <div
       id='drawer-navigation'
-      className={`absolute z-40 top-0 py-14 h-screen overflow-y-auto w-full max-w-full transition-all duration-300 font-heading uppercase text-accent-main tracking-[0.15rem] ${
+      className={`absolute z-40 top-0 py-14 h-screen bg-secondary-main lg:bg-transparent overflow-y-auto w-full max-w-full transition-all duration-300 font-heading uppercase text-accent-main tracking-[0.15rem] ${
         isDrawerOpen ? 'left-0' : '-left-[150%]'
       } `}
       aria-labelledby='drawer-navigation-label'

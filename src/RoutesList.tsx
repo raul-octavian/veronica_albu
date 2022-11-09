@@ -1,12 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import About from './pages/About';
 import Bookings from './pages/Bookings';
+import Gallery from './pages/Gallery';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import MyAccount from './pages/MyAccount';
-import Products from './pages/Products';
 import Register from './pages/Register';
-import Services from './pages/Services';
 
 export const allRoutes = [
   {
@@ -25,14 +24,9 @@ export const allRoutes = [
     element: <About />,
   },
   {
-    name: 'Servicii',
-    path: 'servicii',
-    element: <Services />,
-  },
-  {
-    name: 'Produse',
-    path: 'produse',
-    element: <Products />,
+    name: 'Galerie',
+    path: 'galerie',
+    element: <Gallery />,
   },
   {
     name: 'Contul-meu',

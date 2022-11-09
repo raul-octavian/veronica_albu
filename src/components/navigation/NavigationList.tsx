@@ -8,13 +8,13 @@ type NavigationListProps = {
 
 const NavigationList: FC<NavigationListProps> = ({ onClickHandler }) => {
   return (
-    <div className='p-4 overflow-y-auto w-full md:w-1/2 h-screen bg-secondary-main'>
+    <div className='p-4 overflow-y-auto w-full w:auto lg:w-1/2 h-screen bg-secondary-main'>
       <ul className='space-y-2'>
         {allRoutes.map((item) => (
           <li
             key={item.name}
             onClick={() => (onClickHandler ? onClickHandler(false) : null)}
-            className='group flex items-center hover:bg-primary-soft transform-all duration-300 lg:w-1/2 max-w-full rounded-md'
+            className='group flex items-center hover:bg-primary-soft transform-all duration-300  lg:w-1/2 max-w-full rounded-md'
           >
             <Link
               to={item.path}
