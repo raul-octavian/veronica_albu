@@ -11,6 +11,8 @@ type TextBoxWithCtaAndImageProps = {
   children: JSX.Element | JSX.Element[];
   title?: string;
   link?: string;
+  w?: string;
+  lgW?: string;
 };
 
 const TextBoxWithCtaAndImage: FC<TextBoxWithCtaAndImageProps> = ({
@@ -19,9 +21,11 @@ const TextBoxWithCtaAndImage: FC<TextBoxWithCtaAndImageProps> = ({
   children,
   title,
   link,
+  w,
+  lgW,
 }) => {
   return (
-    <TextBoxContainer>
+    <TextBoxContainer w={w} lgW={lgW}>
       <TextBoxContentWarper>
         <TextBoxHeader>
           <h2 className='text-2xl'>{title}</h2>
