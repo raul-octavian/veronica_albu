@@ -43,13 +43,13 @@ const Testimonials: FC = () => {
         <TestimonialCard>
           <TextBoxContentWarper>
             <div className='px-4'>
-              <header className='md:flex mb-4'>
+              <header className='sm:flex mb-4'>
                 <img
                   src={TestimonialImage}
                   alt='testimonial author'
                   className='mx-auto'
                 />
-                <div className='flex-1 flex justify-center'>
+                <div className='flex-1 flex justify-center sm:justify-start'>
                   <div className='ml-4'>
                     <h3 className='text-lg'>Numele meu</h3>
                     <p className='whitespace-nowrap'>product manager</p>
@@ -71,13 +71,13 @@ const Testimonials: FC = () => {
         <TestimonialCard>
           <TextBoxContentWarper>
             <div className='px-4'>
-              <header className='md:flex mb-4'>
+              <header className='sm:flex mb-4'>
                 <img
                   src={TestimonialImage}
                   alt='testimonial author'
                   className='mx-auto'
                 />
-                <div className='flex-1 flex justify-center'>
+                <div className='flex-1 flex justify-center sm:justify-start'>
                   <div className='ml-4'>
                     <h3 className='text-lg'>Numele meu</h3>
                     <p className='whitespace-nowrap'>product manager</p>

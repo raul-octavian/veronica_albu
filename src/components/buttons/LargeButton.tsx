@@ -10,7 +10,7 @@ const LargeButton: FC<LargeButtonProps> = ({ value, link }) => {
   const navigate = useNavigate();
 
   const onClick = () => {
-    link ? navigate(`${link}`) : navigate('programare');
+    link ? navigate(`${link}`) : navigate('/programare');
   };
   if (value) {
     return (

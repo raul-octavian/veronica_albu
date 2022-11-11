@@ -105,11 +105,7 @@ const Home = () => {
           dolorem.
         </p>
       </TextBoxWithCtaAndImage>
-      <TextBoxWithCtaAndImage
-        title='Alte servicii'
-        ctaValue='Afla mai multe'
-        link='servicii'
-      >
+      <TextBoxWithCtaAndImage title='Alte servicii' ctaValue='Programeaza-te'>
         <p className='md:w-1/2 md:mx-auto'>
           Va invit sa cititi mai multe despre serviciile pe care le ofer pe
           pagina servicii, o sas gesttoi acolo toate informatiile de care ai
@@ -118,11 +114,7 @@ const Home = () => {
         </p>
       </TextBoxWithCtaAndImage>
 
-      <TextBoxWithCtaAndImage
-        title='Produse'
-        ctaValue='Afla mai multe'
-        link='servicii'
-      >
+      <TextBoxWithCtaAndImage title='Produse' ctaValue='Programeaza-te'>
         <p className='md:w-1/2 md:mx-auto'>
           Lucararile mele sunt sustiunte de cele mai bune branduri din Romania
           si din strainatate. In permanenta caut sa gasesc cele mai noi is mai
