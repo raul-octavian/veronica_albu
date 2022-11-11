@@ -30,8 +30,11 @@ const Footer: FC = () => {
             <ContactForm />
           </div>
           <div className='flex-1 px-4 pt-14 shrink-0 min-w-[260px]'>
-            <NavigationList />
+            <NavigationList height='auto' />
           </div>
+        </div>
+        <div className='bg-primary-main text-secondary-main text-center p-4'>
+          <p>© Raul-Octavian, 2022</p>
         </div>
       </TextBoxContainer>
     </div>
