@@ -4,11 +4,17 @@ import { allRoutes } from '../../RoutesList';
 
 type NavigationListProps = {
   onClickHandler?: (value: React.SetStateAction<boolean>) => void;
+  height?: string;
 };
 
-const NavigationList: FC<NavigationListProps> = ({ onClickHandler }) => {
+const NavigationList: FC<NavigationListProps> = ({
+  onClickHandler,
+  height = 'screen',
+}) => {
   return (
-    <div className='p-4 overflow-y-auto w-full w:auto lg:w-1/2 h-screen bg-secondary-main'>
+    <div
+      className={`p-4 overflow-y-auto w-full w:auto lg:w-1/2 h-${height} bg-secondary-main`}
+    >
       <ul className='space-y-2'>
         {allRoutes.map((item) => (
           <li
