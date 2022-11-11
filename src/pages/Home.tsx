@@ -63,7 +63,7 @@ const Home = () => {
       <Testimonials />
 
       <TextBoxHeader>
-        <h2>Servicii</h2>
+        <h2 className='text-2xl'>Servicii</h2>
       </TextBoxHeader>
 
       <TextBoxWithCtaAndImage
