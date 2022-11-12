@@ -11,18 +11,20 @@ type ProductItemProps = {
   serviceName: string;
   duration: string | number;
   price: string | number;
-  checked?: boolean;
   id: string;
   use: UseTypeValues;
+  onMainChangeHandler: () => void;
+  mainChecked?: boolean;
 };
 
 const ProductItem: FC<ProductItemProps> = ({
   serviceName,
   duration,
   price,
-  checked,
+  onMainChangeHandler,
   id,
   use,
+  mainChecked = false,
 }) => {
   return (
     <div className='grid grid-flow-row-dense grid-cols-12 auto-rows-max'>
@@ -33,7 +35,11 @@ const ProductItem: FC<ProductItemProps> = ({
             : 'col-span-6 text-base'
         }
       >
-        <CheckboxName serviceName={serviceName} id={id} checked={checked} />
+        <CheckboxName
+          serviceName={serviceName}
+          id={id}
+          onMainChangeHandler={onMainChangeHandler}
+        />
       </div>
       <PriceOrDurationBox
         type={PriceTypeValues.DURATION}
@@ -45,7 +51,7 @@ const ProductItem: FC<ProductItemProps> = ({
         value={price}
         use={use}
       />
-      {use === UseTypeValues.MAIN && (
+      {use === UseTypeValues.MAIN && mainChecked && (
         <p className='col-start-2 col-span-10 text-xs'>extra:</p>
       )}
     </div>

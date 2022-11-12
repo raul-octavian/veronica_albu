@@ -1,7 +1,5 @@
-import ProductItem, {
-  UseTypeValues,
-} from '../components/productTable/ProductItem';
-import TableHeader from '../components/productTable/TableHeader';
+import ProductTable from '../components/productTable/ProductTable';
+import TableTitle from '../components/productTable/TableTitle';
 import TextBoxContainer from '../components/textBox/TextBoxContainer';
 import TextBoxHeader from '../components/textBox/TextBoxHeader';
 import TextBoxWithCtaAndImage from '../components/textBox/TextBoxWithCtaAndImage';
@@ -32,39 +30,8 @@ const Bookings = () => {
       </TextBoxWithCtaAndImage>
 
       <TextBoxContainer>
-        <TableHeader />
-        <div>
-          <div className='p-4 border border-accent-main my-2 '>
-            <ProductItem
-              serviceName='Manichiura simpla'
-              duration={60}
-              price={150}
-              id='001'
-              use={UseTypeValues.MAIN}
-            />
-            <ProductItem
-              serviceName='Masaj degete'
-              duration={15}
-              price={25}
-              id='002'
-              use={UseTypeValues.SECOND}
-            />
-            <ProductItem
-              serviceName='Baie de ulei'
-              duration={10}
-              price={20}
-              id='003'
-              use={UseTypeValues.SECOND}
-            />
-            <ProductItem
-              serviceName='Lipit ornament'
-              duration={5}
-              price={5}
-              id='004'
-              use={UseTypeValues.SECOND}
-            />
-          </div>
-        </div>
+        <TableTitle />
+        <ProductTable />
       </TextBoxContainer>
     </>
   );

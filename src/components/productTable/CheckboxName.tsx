@@ -2,11 +2,15 @@ import { FC } from 'react';
 
 type CheckboxNameProps = {
   serviceName: string;
-  checked?: boolean;
   id: string;
+  onMainChangeHandler: () => void;
 };
 
-const CheckboxName: FC<CheckboxNameProps> = ({ id, checked, serviceName }) => {
+const CheckboxName: FC<CheckboxNameProps> = ({
+  id,
+  serviceName,
+  onMainChangeHandler,
+}) => {
   return (
     <>
       <input
@@ -14,7 +18,7 @@ const CheckboxName: FC<CheckboxNameProps> = ({ id, checked, serviceName }) => {
         name={id}
         id={id}
         className='accent-accent-main'
-        checked={checked}
+        onChange={() => onMainChangeHandler()}
       />
       <label htmlFor={id} className='text-left ml-1 tracking-wider font-body'>
         {serviceName}
