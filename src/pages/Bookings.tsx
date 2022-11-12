@@ -3,6 +3,7 @@ import TableTitle from '../components/productTable/TableTitle';
 import TextBoxContainer from '../components/textBox/TextBoxContainer';
 import TextBoxHeader from '../components/textBox/TextBoxHeader';
 import TextBoxWithCtaAndImage from '../components/textBox/TextBoxWithCtaAndImage';
+import { mockServices, ServicesContext } from '../contexts/servicesContext';
 
 const Bookings = () => {
   return (
@@ -31,7 +32,9 @@ const Bookings = () => {
 
       <TextBoxContainer>
         <TableTitle />
-        <ProductTable />
+        <ServicesContext.Provider value={mockServices}>
+          <ProductTable />
+        </ServicesContext.Provider>
       </TextBoxContainer>
     </>
   );
