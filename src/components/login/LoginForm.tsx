@@ -37,7 +37,7 @@ const LoginForm: FC = () => {
               message: 'introdu a adresa de email valida',
             },
           })}
-          className={`p-1 bg-primary-main text-secondary-main placeholder:text-secondary-soft rounded-md focus:ring-4 focus:ring-accent-soft focus:outline-none w-full ${
+          className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
             errors.email && `border border-error focus:ring-2 focus:ring-error`
           }
                 `}
@@ -57,7 +57,7 @@ const LoginForm: FC = () => {
           {...register('password', {
             required: requiredRes(),
           })}
-          className={`p-1 bg-primary-main text-secondary-main placeholder:text-secondary-soft rounded-md focus:ring-4 focus:ring-accent-soft focus:outline-none w-full ${
+          className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
             errors.password &&
             `border border-error focus:ring-2 focus:ring-error`
           }

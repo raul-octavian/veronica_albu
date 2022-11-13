@@ -50,7 +50,7 @@ const RegisterForm: FC = () => {
               message: 'foloseste doar litere si spatii',
             },
           })}
-          className={`p-1 bg-primary-main text-secondary-main placeholder:text-secondary-soft rounded-md focus:ring-4 focus:ring-accent-soft focus:outline-none w-full ${
+          className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
             errors.name && `border border-error focus:ring-2 focus:ring-error `
           }
                 `}
@@ -76,7 +76,7 @@ const RegisterForm: FC = () => {
               message: 'introdu a adresa de email valida',
             },
           })}
-          className={`p-1 bg-primary-main text-secondary-main placeholder:text-secondary-soft rounded-md focus:ring-4 focus:ring-accent-soft focus:outline-none w-full ${
+          className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
             errors.email && `border border-error focus:ring-2 focus:ring-error`
           }
                 `}
@@ -102,7 +102,7 @@ const RegisterForm: FC = () => {
               message: 'numarul de telefon poate contine doar numere',
             },
           })}
-          className={`p-1 bg-primary-main text-secondary-main placeholder:text-secondary-soft rounded-md focus:ring-4 focus:ring-accent-soft focus:outline-none w-full ${
+          className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
             errors.phone && `border border-error focus:ring-2 focus:ring-error`
           }
                 `}
@@ -127,7 +127,7 @@ const RegisterForm: FC = () => {
                 'parola trebuie sa contina minim 8 caractere, o majscula, un numar si un caracter special ',
             },
           })}
-          className={`p-1 bg-primary-main text-secondary-main placeholder:text-secondary-soft rounded-md focus:ring-4 focus:ring-accent-soft focus:outline-none w-full ${
+          className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
             errors.password &&
             `border border-error focus:ring-2 focus:ring-error`
           }
@@ -149,7 +149,7 @@ const RegisterForm: FC = () => {
             validate: (value) =>
               value === basePassword || 'Passwords do not match',
           })}
-          className={`p-1 bg-primary-main text-secondary-main placeholder:text-secondary-soft rounded-md focus:ring-4 focus:ring-accent-soft focus:outline-none w-full ${
+          className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
             errors.repassword &&
             `border border-error focus:ring-2 focus:ring-error`
           }
