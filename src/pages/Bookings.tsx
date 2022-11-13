@@ -5,6 +5,7 @@ import TextBoxContainer from '../components/textBox/TextBoxContainer';
 import TextBoxContent from '../components/textBox/TextBoxContent';
 import TextBoxHeader from '../components/textBox/TextBoxHeader';
 import TextBoxWithCtaAndImage from '../components/textBox/TextBoxWithCtaAndImage';
+import ThankYou from '../components/thankYou/ThankYou';
 import { mockServices, ServicesContext } from '../contexts/servicesContext';
 
 const Bookings = () => {
@@ -43,22 +44,9 @@ const Bookings = () => {
         <Basket />
       </TextBoxContainer>
       <TextBoxContainer>
-        <TableTitle title='Programare' />
-        <div className='py-8'>
-          <div className='text-left text-xl w-full p-8 border border-accent-main lg:w-[70%] m-auto'>
-            <p className='mb-2 pl-4'>
-              Draga <span>Placeholder name,</span>
-            </p>
-            <p>Iti multumesc pentru comanda facuta.</p>
-            <p>
-              Te voi suna in cel mai scurt timp pentru a stabili impreuna
-              detaliile prgramarii tale.
-            </p>
-            <p className='text-right mt-4 text-accent-main'>
-              Cu drag, Veronica
-            </p>
-          </div>
-        </div>
+        <TableTitle title='Multumesc' />
+        
+        <ThankYou />
       </TextBoxContainer>
     </>
   );

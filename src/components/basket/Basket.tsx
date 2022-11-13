@@ -86,7 +86,7 @@ const Basket: FC = () => {
 
   return (
     <>
-      <div className='p-4 xl:w-[60%] m-auto'>
+      <div className='p-4 lg:w-[70%] m-auto'>
         <TableHeader></TableHeader>
         <div className='p-4 pb-0 border border-accent-main my-2 '>
           <div>
@@ -133,7 +133,7 @@ const Basket: FC = () => {
             />
           </div>
           <LargeButton
-            value='continua la programare'
+            value='Finalizeaza comanda'
             disabled={getDisclainers()}
             disableValue='accepta conditiile de mai sus'
           />
