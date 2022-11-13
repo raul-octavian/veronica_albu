@@ -88,49 +88,53 @@ const Basket: FC = () => {
     <>
       <div className='p-4 lg:w-[70%] m-auto'>
         <TableHeader></TableHeader>
-        <div className='p-4 pb-0 border border-accent-main my-2 '>
-          <div>
-            {basket.map(({ serviceName, duration, price, id, type }) => (
-              <ProductItem
-                serviceName={serviceName}
-                duration={duration}
-                price={price}
-                id={id}
-                use={type === 1 ? UseTypeValues.MAIN : UseTypeValues.SECOND}
-                onMainChangeHandler={() => null}
-                checked={true}
-              />
-            ))}
-          </div>
-          <div className=' border-t border-accent-main mt-8 py-4'>
+        <div className='border border-accent-main'>
+          <div className='p-4 pb-0 my-2 '>
             <div>
-              <CheckboxName
-                serviceName='am luat la  cunostiata ca durata totala este o estimare a timpului necesar fiecari preceduri si poate suferii moficari.'
-                id='Dis_time'
-                onMainChangeHandler={() => onChangeHandler(setTimeDisclaimer)}
-              />
+              {basket.map(({ serviceName, duration, price, id, type }) => (
+                <ProductItem
+                  serviceName={serviceName}
+                  duration={duration}
+                  price={price}
+                  id={id}
+                  use={type === 1 ? UseTypeValues.MAIN : UseTypeValues.SECOND}
+                  onMainChangeHandler={() => null}
+                  checked={true}
+                />
+              ))}
             </div>
+            <div className=' border-t border-accent-main mt-8 py-4'>
+              <div>
+                <CheckboxName
+                  serviceName='am luat la  cunostiata ca durata totala este o estimare a timpului necesar fiecari preceduri si poate suferii moficari.'
+                  id='Dis_time'
+                  onMainChangeHandler={() => onChangeHandler(setTimeDisclaimer)}
+                />
+              </div>
 
-            <div>
-              <CheckboxName
-                serviceName='am luat la  cunostiata ca pretul este pentru procedurile selectate si orice proceduri adaugate la fata locului pot influenta pretul final.'
-                id='Dis_price'
-                onMainChangeHandler={() => onChangeHandler(setPriceDisclaimer)}
+              <div>
+                <CheckboxName
+                  serviceName='am luat la  cunostiata ca pretul este pentru procedurile selectate si orice proceduri adaugate la fata locului pot influenta pretul final.'
+                  id='Dis_price'
+                  onMainChangeHandler={() =>
+                    onChangeHandler(setPriceDisclaimer)
+                  }
+                />
+              </div>
+            </div>
+            <div className='grid grid-flow-row-dense grid-cols-12 auto-rows-max border-y border-accent-main mb-8'>
+              <div className='col-span-6'>Total</div>
+              <PriceOrDurationBox
+                type={TypeValues.TOTAL_DURATION}
+                value={totalDuration}
+                use={UseTypeValues.MAIN}
+              />
+              <PriceOrDurationBox
+                type={TypeValues.PRICE}
+                value={totalPrice}
+                use={UseTypeValues.MAIN}
               />
             </div>
-          </div>
-          <div className='grid grid-flow-row-dense grid-cols-12 auto-rows-max border-y border-accent-main mb-8'>
-            <div className='col-span-6'>Total</div>
-            <PriceOrDurationBox
-              type={TypeValues.TOTAL_DURATION}
-              value={totalDuration}
-              use={UseTypeValues.MAIN}
-            />
-            <PriceOrDurationBox
-              type={TypeValues.PRICE}
-              value={totalPrice}
-              use={UseTypeValues.MAIN}
-            />
           </div>
           <LargeButton
             value='Finalizeaza comanda'

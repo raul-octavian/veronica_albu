@@ -14,7 +14,7 @@ export const allRoutes = [
     element: <Home />,
   },
   {
-    name: 'Programea-ma',
+    name: 'Programeaza-ma',
     path: 'programare',
     element: <Bookings />,
   },
