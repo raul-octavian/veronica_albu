@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import CheckboxName from './CheckboxName';
-import PriceOrDurationBox, { PriceTypeValues } from './PriceOrDurationBox';
+import PriceOrDurationBox, { TypeValues } from './PriceOrDurationBox';
 
 export enum UseTypeValues {
   MAIN = 'main',
@@ -15,6 +15,7 @@ type ProductItemProps = {
   use: UseTypeValues;
   onMainChangeHandler: () => void;
   mainChecked?: boolean;
+  checked?: boolean;
 };
 
 const ProductItem: FC<ProductItemProps> = ({
@@ -25,6 +26,7 @@ const ProductItem: FC<ProductItemProps> = ({
   id,
   use,
   mainChecked = false,
+  checked,
 }) => {
   return (
     <div className='grid grid-flow-row-dense grid-cols-12 auto-rows-max'>
@@ -39,18 +41,15 @@ const ProductItem: FC<ProductItemProps> = ({
           serviceName={serviceName}
           id={id}
           onMainChangeHandler={onMainChangeHandler}
+          checked={checked}
         />
       </div>
       <PriceOrDurationBox
-        type={PriceTypeValues.DURATION}
+        type={TypeValues.DURATION}
         value={duration}
         use={use}
       />
-      <PriceOrDurationBox
-        type={PriceTypeValues.PRICE}
-        value={price}
-        use={use}
-      />
+      <PriceOrDurationBox type={TypeValues.PRICE} value={price} use={use} />
       {use === UseTypeValues.MAIN && mainChecked && (
         <p className='col-start-2 col-span-10 text-xs'>extra:</p>
       )}

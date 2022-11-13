@@ -1,13 +1,15 @@
 import { FC } from 'react';
 import { UseTypeValues } from './ProductItem';
 
-export enum PriceTypeValues {
+export enum TypeValues {
   PRICE = 'price',
   DURATION = 'duration',
+  TOTAL_DURATION = 'total_duration',
+  TOTAL_PRICE = 'total_price',
 }
 
 type PriceOrDurationBoxProps = {
-  type: PriceTypeValues;
+  type: TypeValues;
   value: string | number;
   use: UseTypeValues;
 };
@@ -27,7 +29,7 @@ const PriceOrDurationBox: FC<PriceOrDurationBoxProps> = ({
         }
       >
         <span className='text-accent-main'>{value}</span>
-        {type === PriceTypeValues.PRICE && <span> ron</span>}
+        {type === TypeValues.PRICE && <span> ron</span>}
       </p>
     </div>
   );

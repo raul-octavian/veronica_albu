@@ -8,3 +8,7 @@ export type Service = {
   compatible?: string[];
   extras?: string[];
 };
+
+export type BasketService = Service & {
+  addedFor?: string;
+};
