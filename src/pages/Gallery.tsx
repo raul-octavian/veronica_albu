@@ -6,7 +6,7 @@ const Gallery = () => {
   return (
     <div>
       <TextBoxHeader>
-        <h1 className='text-accent-main text-4xl font-heading'>
+        <h1 className='text-accent-main text-3xl font-heading'>
           Lucrarile mele
         </h1>
       </TextBoxHeader>

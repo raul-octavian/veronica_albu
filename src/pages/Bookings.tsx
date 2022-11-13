@@ -12,7 +12,7 @@ const Bookings = () => {
   return (
     <>
       <TextBoxHeader>
-        <h1 className='text-accent-main text-4xl font-heading'>
+        <h1 className='text-accent-main text-3xl font-heading'>
           Serviciile mele
         </h1>
       </TextBoxHeader>
@@ -45,7 +45,7 @@ const Bookings = () => {
       </TextBoxContainer>
       <TextBoxContainer>
         <TableTitle title='Multumesc' />
-        
+
         <ThankYou />
       </TextBoxContainer>
     </>
