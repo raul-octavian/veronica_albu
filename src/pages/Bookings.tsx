@@ -3,7 +3,6 @@ import LoginForm from '../components/login/LoginForm';
 import ProductTable from '../components/productTable/ProductTable';
 import TableTitle from '../components/productTable/TableTitle';
 import TextBoxContainer from '../components/textBox/TextBoxContainer';
-import TextBoxContent from '../components/textBox/TextBoxContent';
 import TextBoxHeader from '../components/textBox/TextBoxHeader';
 import TextBoxWithCtaAndImage from '../components/textBox/TextBoxWithCtaAndImage';
 import ThankYou from '../components/thankYou/ThankYou';

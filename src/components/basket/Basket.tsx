@@ -1,4 +1,3 @@
-import { type } from '@testing-library/user-event/dist/type';
 import { FC, useEffect, useState } from 'react';
 import { BasketService } from '../../types/service';
 import LargeButton from '../buttons/LargeButton';

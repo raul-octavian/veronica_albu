@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { useServiceContext } from '../../contexts/servicesContext';
 import { Service } from '../../types/service';
 import ProductElement from './ProductElement';
