@@ -79,7 +79,7 @@ const LoginForm: FC = () => {
           {' '}
           Creaza cont
         </Link>
-        <Button type='submit' value='Logheazate'></Button>
+        <Button type='submit' value='Logheaza-te'></Button>
         <Link
           to='/register'
           className='text-primary-main hover:underline tracking-wider'

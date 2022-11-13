@@ -1,4 +1,5 @@
 import Basket from '../components/basket/Basket';
+import LoginForm from '../components/login/LoginForm';
 import ProductTable from '../components/productTable/ProductTable';
 import TableTitle from '../components/productTable/TableTitle';
 import TextBoxContainer from '../components/textBox/TextBoxContainer';
@@ -11,8 +12,14 @@ import { mockServices, ServicesContext } from '../contexts/servicesContext';
 const Bookings = () => {
   return (
     <>
+      <div>
+        <p className='text-primary-main text-xl font-body text-center mb-8 '>
+          Autentifica-te pt a continua
+        </p>
+        <LoginForm />
+      </div>
       <TextBoxHeader>
-        <h1 className='text-accent-main text-3xl font-heading'>
+        <h1 className='text-accent-main text-2xl font-heading'>
           Serviciile mele
         </h1>
       </TextBoxHeader>
