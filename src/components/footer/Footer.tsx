@@ -30,7 +30,7 @@ const Footer: FC = () => {
             <ContactForm />
           </div>
           <div className='flex-1 px-4 pt-14 shrink-0 min-w-[260px]'>
-            <NavigationList height='auto' />
+            <NavigationList h='auto' lgw='full' />
           </div>
         </div>
         <div className='bg-primary-main text-secondary-main text-center p-4'>
