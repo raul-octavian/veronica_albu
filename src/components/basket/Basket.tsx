@@ -99,6 +99,7 @@ const Basket: FC = () => {
                   use={type === 1 ? UseTypeValues.MAIN : UseTypeValues.SECOND}
                   onMainChangeHandler={() => null}
                   checked={true}
+                  key={id}
                 />
               ))}
             </div>
