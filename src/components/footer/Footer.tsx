@@ -8,6 +8,7 @@ import TextBoxHeader from '../textBox/TextBoxHeader';
 import Address from './Address';
 import SocialContacts from './SocialContacts';
 import ContactForm from './ContactForm';
+import WorkingHours from './WorkingHours';
 
 const Footer: FC = () => {
   return (
@@ -21,6 +22,7 @@ const Footer: FC = () => {
               </div>
               <Address />
             </div>
+            <WorkingHours />
             <SocialContacts />
           </div>
           <div className='px-4 pt-14 flex-1 min-w-[260px]'>
