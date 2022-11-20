@@ -39,17 +39,17 @@ const Bookings = () => {
         </p>
       </TextBoxWithCtaAndImage>
 
-      <TextBoxContainer w='[90%]'>
+      <TextBoxContainer w='[80%]' lgW='[80%]'>
         <TableTitle title='Lista de servicii' />
         <ServicesContext.Provider value={mockServices}>
           <ProductTable />
         </ServicesContext.Provider>
       </TextBoxContainer>
-      <TextBoxContainer w='[90%]'>
+      <TextBoxContainer w='[80%]' lgW='[80%]'>
         <TableTitle title='Cosul meu' />
         <Basket />
       </TextBoxContainer>
-      <TextBoxContainer w='[90%]'>
+      <TextBoxContainer w='[80%]' lgW='[80%]'>
         <TableTitle title='Multumesc' />
 
         <ThankYou />
