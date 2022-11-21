@@ -1,6 +1,7 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { allRoutes } from '../../RoutesList';
+import { useSessionContext } from '../../contexts/sessionContext';
+import { allRoutes, RoutesType, ShowState } from '../../RoutesList';
 
 type NavigationListProps = {
   onClickHandler?: (value: React.SetStateAction<boolean>) => void;
@@ -13,12 +14,22 @@ const NavigationList: FC<NavigationListProps> = ({
   h = 'screen',
   lgw = '1/2',
 }) => {
+  const { session } = useSessionContext();
+  const [activeRoutes, setActiveRoutes] = useState<RoutesType[]>(allRoutes);
+
+  useEffect(() => {
+    const value = session?.user?.id ? ShowState.OUT : ShowState.IN;
+    const routes = allRoutes.filter((item) => item.show !== value);
+
+    setActiveRoutes(routes);
+  });
+
   return (
     <div
       className={`p-4 overflow-y-auto w-auto lg:w-${lgw} h-${h} bg-secondary-main`}
     >
       <ul className='space-y-2'>
-        {allRoutes.map((item) => (
+        {activeRoutes.map((item) => (
           <li
             key={item.name}
             onClick={() => (onClickHandler ? onClickHandler(false) : null)}
