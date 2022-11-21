@@ -12,11 +12,12 @@ import {
 import { requiredRes } from '../../utils/ValidationResponces';
 
 type Inputs = {
-  name: string;
+  firstName: string;
+  lastName: string;
   phone: string;
   email: string;
   password: string;
-  repassword: string;
+  rePassword: string;
 };
 
 const RegisterForm: FC = () => {
@@ -31,7 +32,9 @@ const RegisterForm: FC = () => {
 
   const basePassword = watch('password');
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  
+  };
 
   return (
     <form
@@ -39,11 +42,11 @@ const RegisterForm: FC = () => {
       className='flex flex-col gap-2 max-w-[280px] m-auto'
     >
       <div>
-        <label htmlFor='name' className='block'>
-          Nume
+        <label htmlFor='firstName' className='block'>
+          Prenume
         </label>
         <input
-          {...register('name', {
+          {...register('firstName', {
             required: requiredRes(),
             pattern: {
               value: onlyLetter,
@@ -51,16 +54,44 @@ const RegisterForm: FC = () => {
             },
           })}
           className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
-            errors.name && `border border-error focus:ring-2 focus:ring-error `
+            errors.firstName &&
+            `border border-error focus:ring-2 focus:ring-error `
           }
                 `}
-          type='name'
-          id='name'
+          type='text'
+          id='firstName'
           placeholder='ex: Jane Doe'
         />
-        {errors.name && (
+        {errors.firstName && (
           <span className='text-error font-body text-xs m-0'>
-            {errors.name?.message}
+            {errors.firstName?.message}
+          </span>
+        )}
+      </div>
+      <div>
+        <label htmlFor='lastName' className='block'>
+          Nume
+        </label>
+        <input
+          {...register('lastName', {
+            required: requiredRes(),
+            pattern: {
+              value: onlyLetter,
+              message: 'foloseste doar litere si spatii',
+            },
+          })}
+          className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
+            errors.lastName &&
+            `border border-error focus:ring-2 focus:ring-error `
+          }
+                `}
+          type='text'
+          id='lastName'
+          placeholder='ex: Jane Doe'
+        />
+        {errors.lastName && (
+          <span className='text-error font-body text-xs m-0'>
+            {errors.lastName?.message}
           </span>
         )}
       </div>
@@ -142,25 +173,25 @@ const RegisterForm: FC = () => {
         )}
       </div>
       <div>
-        <label htmlFor='repassword'>Confirma parola</label>
+        <label htmlFor='rePassword'>Confirma parola</label>
         <input
-          {...register('repassword', {
+          {...register('rePassword', {
             required: requiredRes(),
             validate: (value) =>
-              value === basePassword || 'Passwords do not match',
+              value === basePassword || 'Parolele nu sunt indentice',
           })}
           className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
-            errors.repassword &&
+            errors.rePassword &&
             `border border-error focus:ring-2 focus:ring-error`
           }
                 `}
-          name='repassword'
+          name='rePassword'
           type='password'
           placeholder='************'
         />
-        {errors.repassword && (
+        {errors.rePassword && (
           <span className='text-error font-body text-xs m-0'>
-            {errors.repassword?.message}
+            {errors.rePassword?.message}
           </span>
         )}
       </div>
