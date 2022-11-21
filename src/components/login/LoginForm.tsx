@@ -2,7 +2,7 @@ import { AuthError } from '@supabase/supabase-js';
 import { FC, useState } from 'react';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { PostgrestError } from 'react-supabase';
 import Button from '../../components/navigation/Button';
 import { useSessionContext } from '../../contexts/sessionContext';
@@ -25,6 +25,7 @@ const LoginForm: FC = () => {
   const [error, setError] = useState<PostgrestError | AuthError>();
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { setSession } = useSessionContext();
 
@@ -36,8 +37,8 @@ const LoginForm: FC = () => {
 
     data?.session && setSession(data?.session);
     error && setError(() => error);
-
-    !error && navigate('/');
+    console.log(location);
+    !error && location.pathname === '/login' && navigate('/');
   };
 
   return (

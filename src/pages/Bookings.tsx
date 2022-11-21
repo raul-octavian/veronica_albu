@@ -7,16 +7,30 @@ import TextBoxHeader from '../components/textBox/TextBoxHeader';
 import TextBoxWithCtaAndImage from '../components/textBox/TextBoxWithCtaAndImage';
 import ThankYou from '../components/thankYou/ThankYou';
 import { mockServices, ServicesContext } from '../contexts/servicesContext';
+import { useSessionContext } from '../contexts/sessionContext';
 
 const Bookings = () => {
+  const { session } = useSessionContext();
+
+  const userLoggedIn = !session?.user?.id;
+
+  if (userLoggedIn) {
+    return (
+      <div className='h-screen flex justify-center items-center flex-col'>
+        <TextBoxHeader>
+          <p className='text-primary-main text-xl font-body text-center mb-8 '>
+            Autentifica-te pt a continua
+          </p>
+        </TextBoxHeader>
+        <div className=' bg-secondary-main md:w-[80%] p-8 mt-8 '>
+          <LoginForm />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
-      <div>
-        <p className='text-primary-main text-xl font-body text-center mb-8 '>
-          Autentifica-te pt a continua
-        </p>
-        <LoginForm />
-      </div>
       <TextBoxHeader>
         <h1 className='text-accent-main text-2xl font-heading'>
           Serviciile mele
