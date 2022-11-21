@@ -50,20 +50,13 @@ const RegisterForm: FC = () => {
         },
       },
     });
-
-    error && setError(error);
+    error && setError(() => error);
+    !error && navigate('/login');
   };
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     signUpWithPassword(data);
-    !error && navigate('/login');
   };
-
-  if (error) {
-    return (
-      <p>Ups, a aparut o eroare la crearea contului. Te rog mai incearca.</p>
-    );
-  }
 
   return (
     <form
@@ -234,6 +227,11 @@ const RegisterForm: FC = () => {
         </Link>
         <Button type='submit' value='Creaza cont'></Button>
       </div>
+      {error && error.message === 'User already registered' && (
+        <p className='text-error font-body text-sm m-0 text-center'>
+          Un utilizator cu acest email deja exista
+        </p>
+      )}
     </form>
   );
 };

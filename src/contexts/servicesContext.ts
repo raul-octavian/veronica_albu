@@ -1,5 +1,5 @@
-import { createContext, FC, ProviderProps, useContext, useState } from 'react';
-import { ChildrenProp } from '../types/children';
+import { createContext, useContext } from 'react';
+
 import { Service } from '../types/service';
 
 export const mockServices: Service[] = [

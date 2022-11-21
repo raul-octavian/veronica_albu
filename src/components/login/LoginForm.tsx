@@ -1,8 +1,12 @@
-import { FC } from 'react';
+import { AuthError } from '@supabase/supabase-js';
+import { FC, useState } from 'react';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { PostgrestError } from 'react-supabase';
 import Button from '../../components/navigation/Button';
+import { useSessionContext } from '../../contexts/sessionContext';
+import supabase from '../../supabase';
 import { validateEmail } from '../../utils/regex';
 import { requiredRes } from '../../utils/ValidationResponces';
 
@@ -18,7 +22,23 @@ const LoginForm: FC = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const [error, setError] = useState<PostgrestError | AuthError>();
+
+  const navigate = useNavigate();
+
+  const { setSession } = useSessionContext();
+
+  const onSubmit: SubmitHandler<Inputs> = async (inputs: Inputs) => {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: inputs.email,
+      password: inputs.password,
+    });
+
+    data?.session && setSession(data?.session);
+    error && setError(() => error);
+
+    !error && navigate('/');
+  };
 
   return (
     <form
@@ -88,6 +108,11 @@ const LoginForm: FC = () => {
           Ai uitat parola?
         </Link>
       </div>
+      {error && error.message === 'Invalid login credentials' && (
+        <p className='text-error font-body text-sm m-0 text-center'>
+          Emailul sau parola nu sunt corecte
+        </p>
+      )}
     </form>
   );
 };
