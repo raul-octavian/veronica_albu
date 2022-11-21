@@ -1629,96 +1629,6 @@ export interface paths {
       };
     };
   };
-  "/gallery": {
-    get: {
-      parameters: {
-        query: {
-          url?: parameters["rowFilter.gallery.url"];
-          name?: parameters["rowFilter.gallery.name"];
-          /** Filtering Columns */
-          select?: parameters["select"];
-          /** Ordering */
-          order?: parameters["order"];
-          /** Limiting and Pagination */
-          offset?: parameters["offset"];
-          /** Limiting and Pagination */
-          limit?: parameters["limit"];
-        };
-        header: {
-          /** Limiting and Pagination */
-          Range?: parameters["range"];
-          /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
-          /** Preference */
-          Prefer?: parameters["preferCount"];
-        };
-      };
-      responses: {
-        /** OK */
-        200: {
-          schema: definitions["gallery"][];
-        };
-        /** Partial Content */
-        206: unknown;
-      };
-    };
-    post: {
-      parameters: {
-        body: {
-          /** gallery */
-          gallery?: definitions["gallery"];
-        };
-        query: {
-          /** Filtering Columns */
-          select?: parameters["select"];
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters["preferReturn"];
-        };
-      };
-      responses: {
-        /** Created */
-        201: unknown;
-      };
-    };
-    delete: {
-      parameters: {
-        query: {
-          url?: parameters["rowFilter.gallery.url"];
-          name?: parameters["rowFilter.gallery.name"];
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters["preferReturn"];
-        };
-      };
-      responses: {
-        /** No Content */
-        204: never;
-      };
-    };
-    patch: {
-      parameters: {
-        query: {
-          url?: parameters["rowFilter.gallery.url"];
-          name?: parameters["rowFilter.gallery.name"];
-        };
-        body: {
-          /** gallery */
-          gallery?: definitions["gallery"];
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters["preferReturn"];
-        };
-      };
-      responses: {
-        /** No Content */
-        204: never;
-      };
-    };
-  };
   "/image_has_likes": {
     get: {
       parameters: {
@@ -2889,13 +2799,14 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.clients.id"];
           created_at?: parameters["rowFilter.clients.created_at"];
-          name?: parameters["rowFilter.clients.name"];
+          first_name?: parameters["rowFilter.clients.first_name"];
           phone?: parameters["rowFilter.clients.phone"];
           email?: parameters["rowFilter.clients.email"];
           last_visit?: parameters["rowFilter.clients.last_visit"];
           role?: parameters["rowFilter.clients.role"];
           user_status?: parameters["rowFilter.clients.user_status"];
           referred_by?: parameters["rowFilter.clients.referred_by"];
+          last_name?: parameters["rowFilter.clients.last_name"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -2948,13 +2859,14 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.clients.id"];
           created_at?: parameters["rowFilter.clients.created_at"];
-          name?: parameters["rowFilter.clients.name"];
+          first_name?: parameters["rowFilter.clients.first_name"];
           phone?: parameters["rowFilter.clients.phone"];
           email?: parameters["rowFilter.clients.email"];
           last_visit?: parameters["rowFilter.clients.last_visit"];
           role?: parameters["rowFilter.clients.role"];
           user_status?: parameters["rowFilter.clients.user_status"];
           referred_by?: parameters["rowFilter.clients.referred_by"];
+          last_name?: parameters["rowFilter.clients.last_name"];
         };
         header: {
           /** Preference */
@@ -2971,13 +2883,14 @@ export interface paths {
         query: {
           id?: parameters["rowFilter.clients.id"];
           created_at?: parameters["rowFilter.clients.created_at"];
-          name?: parameters["rowFilter.clients.name"];
+          first_name?: parameters["rowFilter.clients.first_name"];
           phone?: parameters["rowFilter.clients.phone"];
           email?: parameters["rowFilter.clients.email"];
           last_visit?: parameters["rowFilter.clients.last_visit"];
           role?: parameters["rowFilter.clients.role"];
           user_status?: parameters["rowFilter.clients.user_status"];
           referred_by?: parameters["rowFilter.clients.referred_by"];
+          last_name?: parameters["rowFilter.clients.last_name"];
         };
         body: {
           /** clients */
@@ -3390,12 +3303,6 @@ export interface definitions {
     /** Format: timestamp with time zone */
     end: string;
   };
-  gallery: {
-    /** Format: character varying */
-    url?: string;
-    /** Format: character varying */
-    name?: string;
-  };
   image_has_likes: {
     /**
      * Format: uuid
@@ -3684,7 +3591,7 @@ export interface definitions {
      */
     created_at?: string;
     /** Format: character varying */
-    name: string;
+    first_name: string;
     /** Format: character varying */
     phone: string;
     /** Format: character varying */
@@ -3711,6 +3618,8 @@ export interface definitions {
      * This is a Foreign Key to `clients.id`.<fk table='clients' column='id'/>
      */
     referred_by?: string;
+    /** Format: character varying */
+    last_name: string;
   };
 }
 
@@ -3961,12 +3870,6 @@ export interface parameters {
   "rowFilter.orders.start": string;
   /** Format: timestamp with time zone */
   "rowFilter.orders.end": string;
-  /** @description gallery */
-  "body.gallery": definitions["gallery"];
-  /** Format: character varying */
-  "rowFilter.gallery.url": string;
-  /** Format: character varying */
-  "rowFilter.gallery.name": string;
   /** @description image_has_likes */
   "body.image_has_likes": definitions["image_has_likes"];
   /** Format: uuid */
@@ -4102,7 +4005,7 @@ export interface parameters {
   /** Format: timestamp with time zone */
   "rowFilter.clients.created_at": string;
   /** Format: character varying */
-  "rowFilter.clients.name": string;
+  "rowFilter.clients.first_name": string;
   /** Format: character varying */
   "rowFilter.clients.phone": string;
   /** Format: character varying */
@@ -4115,6 +4018,8 @@ export interface parameters {
   "rowFilter.clients.user_status": string;
   /** Format: uuid */
   "rowFilter.clients.referred_by": string;
+  /** Format: character varying */
+  "rowFilter.clients.last_name": string;
 }
 
 export interface operations {}

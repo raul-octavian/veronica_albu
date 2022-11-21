@@ -1,7 +1,9 @@
-import { FC } from 'react';
+import { AuthError, PostgrestError } from '@supabase/supabase-js';
+import { FC, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/navigation/Button';
+import supabase from '../../supabase';
 
 import {
   onlyLetter,
@@ -30,11 +32,38 @@ const RegisterForm: FC = () => {
     mode: 'onTouched',
   });
 
+  const navigate = useNavigate();
+
+  const [error, setError] = useState<PostgrestError | AuthError>();
+
   const basePassword = watch('password');
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-  
+  const signUpWithPassword = async (input: Inputs) => {
+    const { data, error } = await supabase.auth.signUp({
+      email: input.email,
+      password: input.password,
+      options: {
+        data: {
+          first_name: input.firstName,
+          last_name: input.lastName,
+          phone: input.phone,
+        },
+      },
+    });
+
+    error && setError(error);
   };
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    signUpWithPassword(data);
+    !error && navigate('/login');
+  };
+
+  if (error) {
+    return (
+      <p>Ups, a aparut o eroare la crearea contului. Te rog mai incearca.</p>
+    );
+  }
 
   return (
     <form
