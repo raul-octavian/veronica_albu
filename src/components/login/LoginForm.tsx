@@ -37,7 +37,6 @@ const LoginForm: FC = () => {
 
     data?.session && setSession(data?.session);
     error && setError(() => error);
-    console.log(location);
     !error && location.pathname === '/login' && navigate('/');
   };
 
