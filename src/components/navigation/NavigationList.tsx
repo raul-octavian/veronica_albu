@@ -22,7 +22,7 @@ const NavigationList: FC<NavigationListProps> = ({
     const routes = allRoutes.filter((item) => item.show !== value);
 
     setActiveRoutes(routes);
-  });
+  }, []);
 
   return (
     <div

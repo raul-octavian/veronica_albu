@@ -136,6 +136,7 @@ const RegisterForm: FC = () => {
           type='email'
           id='email'
           placeholder='ex: email@email.com'
+          autoComplete='email'
         />
         {errors.email && (
           <span className='text-error font-body text-xs m-0'>
@@ -187,6 +188,7 @@ const RegisterForm: FC = () => {
                 `}
           type='password'
           placeholder='************'
+          autoComplete='new-password'
         />
         {errors.password && (
           <span className='text-error font-body text-xs m-0'>
@@ -210,6 +212,7 @@ const RegisterForm: FC = () => {
           name='rePassword'
           type='password'
           placeholder='************'
+          autoComplete='new-password'
         />
         {errors.rePassword && (
           <span className='text-error font-body text-xs m-0'>

@@ -18,8 +18,13 @@ const Bookings = () => {
     return (
       <div className='h-screen flex justify-center items-center flex-col'>
         <TextBoxHeader>
-          <p className='text-primary-main text-xl font-body text-center mb-8 '>
-            Autentifica-te pt a continua
+          <h1 className='text-accent-main text-2xl font-heading'>
+            Serviciile mele
+          </h1>
+        </TextBoxHeader>
+        <TextBoxHeader>
+          <p className='text-primary-main text-xl font-body text-center mb-8 uppercase font-heading '>
+            Autentifica-te pentru a continua
           </p>
         </TextBoxHeader>
         <div className=' bg-secondary-main md:w-[80%] p-8 mt-8 '>

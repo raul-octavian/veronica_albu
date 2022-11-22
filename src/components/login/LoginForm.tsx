@@ -64,6 +64,8 @@ const LoginForm: FC = () => {
           type='email'
           id='email'
           placeholder='ex: email@email.com'
+          autoComplete='email'
+          autoFocus
         />
         {errors.email && (
           <span className='text-error font-body text-xs m-0'>
@@ -84,6 +86,7 @@ const LoginForm: FC = () => {
                 `}
           type='password'
           placeholder='************'
+          autoComplete='current-password'
         />
         {errors.password && (
           <span className='text-error font-body text-xs m-0'>
