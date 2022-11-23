@@ -106,7 +106,7 @@ const Basket: FC = () => {
             <div className=' border-t border-accent-main mt-8 py-4'>
               <div>
                 <CheckboxName
-                  serviceName='am luat la  cunostiata ca durata totala este o estimare a timpului necesar fiecari preceduri si poate suferii moficari.'
+                  serviceName='am luat la  cunostiata ca durata totala este o estimare a timpului necesar fiecari preceduri si poate suferii modificari.'
                   id='Dis_time'
                   onMainChangeHandler={() => onChangeHandler(setTimeDisclaimer)}
                 />

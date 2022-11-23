@@ -8,13 +8,15 @@ import TextBoxWithCtaAndImage from '../components/textBox/TextBoxWithCtaAndImage
 import ThankYou from '../components/thankYou/ThankYou';
 import { mockServices, ServicesContext } from '../contexts/servicesContext';
 import { useSessionContext } from '../contexts/sessionContext';
+import useGetServices from '../query/useGetServices';
 
 const Bookings = () => {
   const { session } = useSessionContext();
+  const userNotLoggedIn = !session?.user?.id;
 
-  const userLoggedIn = !session?.user?.id;
+  const { services, error } = useGetServices();
 
-  if (userLoggedIn) {
+  if (userNotLoggedIn) {
     return (
       <div className='h-screen flex justify-center items-center flex-col'>
         <TextBoxHeader>

@@ -204,6 +204,45 @@ export interface paths {
       };
     };
   };
+  "/clientview": {
+    get: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter.clientview.id"];
+          phone?: parameters["rowFilter.clientview.phone"];
+          email?: parameters["rowFilter.clientview.email"];
+          first_name?: parameters["rowFilter.clientview.first_name"];
+          last_name?: parameters["rowFilter.clientview.last_name"];
+          role?: parameters["rowFilter.clientview.role"];
+          user_status?: parameters["rowFilter.clientview.user_status"];
+          /** Filtering Columns */
+          select?: parameters["select"];
+          /** Ordering */
+          order?: parameters["order"];
+          /** Limiting and Pagination */
+          offset?: parameters["offset"];
+          /** Limiting and Pagination */
+          limit?: parameters["limit"];
+        };
+        header: {
+          /** Limiting and Pagination */
+          Range?: parameters["range"];
+          /** Limiting and Pagination */
+          "Range-Unit"?: parameters["rangeUnit"];
+          /** Preference */
+          Prefer?: parameters["preferCount"];
+        };
+      };
+      responses: {
+        /** OK */
+        200: {
+          schema: definitions["clientview"][];
+        };
+        /** Partial Content */
+        206: unknown;
+      };
+    };
+  };
   "/campaign_has_services": {
     get: {
       parameters: {
@@ -801,6 +840,101 @@ export interface paths {
       };
     };
   };
+  "/order_has_disclaimers": {
+    get: {
+      parameters: {
+        query: {
+          /** Ordering */
+          order?: parameters["order"];
+          created_at?: parameters["rowFilter.order_has_disclaimers.created_at"];
+          disclaimer?: parameters["rowFilter.order_has_disclaimers.disclaimer"];
+          status?: parameters["rowFilter.order_has_disclaimers.status"];
+          /** Filtering Columns */
+          select?: parameters["select"];
+          /** Limiting and Pagination */
+          offset?: parameters["offset"];
+          /** Limiting and Pagination */
+          limit?: parameters["limit"];
+        };
+        header: {
+          /** Limiting and Pagination */
+          Range?: parameters["range"];
+          /** Limiting and Pagination */
+          "Range-Unit"?: parameters["rangeUnit"];
+          /** Preference */
+          Prefer?: parameters["preferCount"];
+        };
+      };
+      responses: {
+        /** OK */
+        200: {
+          schema: definitions["order_has_disclaimers"][];
+        };
+        /** Partial Content */
+        206: unknown;
+      };
+    };
+    post: {
+      parameters: {
+        body: {
+          /** order_has_disclaimers */
+          order_has_disclaimers?: definitions["order_has_disclaimers"];
+        };
+        query: {
+          /** Filtering Columns */
+          select?: parameters["select"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** Created */
+        201: unknown;
+      };
+    };
+    delete: {
+      parameters: {
+        query: {
+          order?: parameters["rowFilter.order_has_disclaimers.order"];
+          created_at?: parameters["rowFilter.order_has_disclaimers.created_at"];
+          disclaimer?: parameters["rowFilter.order_has_disclaimers.disclaimer"];
+          status?: parameters["rowFilter.order_has_disclaimers.status"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+    patch: {
+      parameters: {
+        query: {
+          order?: parameters["rowFilter.order_has_disclaimers.order"];
+          created_at?: parameters["rowFilter.order_has_disclaimers.created_at"];
+          disclaimer?: parameters["rowFilter.order_has_disclaimers.disclaimer"];
+          status?: parameters["rowFilter.order_has_disclaimers.status"];
+        };
+        body: {
+          /** order_has_disclaimers */
+          order_has_disclaimers?: definitions["order_has_disclaimers"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+  };
   "/message": {
     get: {
       parameters: {
@@ -1230,6 +1364,8 @@ export interface paths {
           price?: parameters["rowFilter.services.price"];
           image?: parameters["rowFilter.services.image"];
           category?: parameters["rowFilter.services.category"];
+          /** primary or auxiliary(1 or 2) */
+          type?: parameters["rowFilter.services.type"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -1288,6 +1424,8 @@ export interface paths {
           price?: parameters["rowFilter.services.price"];
           image?: parameters["rowFilter.services.image"];
           category?: parameters["rowFilter.services.category"];
+          /** primary or auxiliary(1 or 2) */
+          type?: parameters["rowFilter.services.type"];
         };
         header: {
           /** Preference */
@@ -1310,6 +1448,8 @@ export interface paths {
           price?: parameters["rowFilter.services.price"];
           image?: parameters["rowFilter.services.image"];
           category?: parameters["rowFilter.services.category"];
+          /** primary or auxiliary(1 or 2) */
+          type?: parameters["rowFilter.services.type"];
         };
         body: {
           /** services */
@@ -1818,6 +1958,105 @@ export interface paths {
         body: {
           /** images */
           images?: definitions["images"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+  };
+  "/disclaimers": {
+    get: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter.disclaimers.id"];
+          created_at?: parameters["rowFilter.disclaimers.created_at"];
+          name?: parameters["rowFilter.disclaimers.name"];
+          description?: parameters["rowFilter.disclaimers.description"];
+          section?: parameters["rowFilter.disclaimers.section"];
+          /** Filtering Columns */
+          select?: parameters["select"];
+          /** Ordering */
+          order?: parameters["order"];
+          /** Limiting and Pagination */
+          offset?: parameters["offset"];
+          /** Limiting and Pagination */
+          limit?: parameters["limit"];
+        };
+        header: {
+          /** Limiting and Pagination */
+          Range?: parameters["range"];
+          /** Limiting and Pagination */
+          "Range-Unit"?: parameters["rangeUnit"];
+          /** Preference */
+          Prefer?: parameters["preferCount"];
+        };
+      };
+      responses: {
+        /** OK */
+        200: {
+          schema: definitions["disclaimers"][];
+        };
+        /** Partial Content */
+        206: unknown;
+      };
+    };
+    post: {
+      parameters: {
+        body: {
+          /** disclaimers */
+          disclaimers?: definitions["disclaimers"];
+        };
+        query: {
+          /** Filtering Columns */
+          select?: parameters["select"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** Created */
+        201: unknown;
+      };
+    };
+    delete: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter.disclaimers.id"];
+          created_at?: parameters["rowFilter.disclaimers.created_at"];
+          name?: parameters["rowFilter.disclaimers.name"];
+          description?: parameters["rowFilter.disclaimers.description"];
+          section?: parameters["rowFilter.disclaimers.section"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+    patch: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter.disclaimers.id"];
+          created_at?: parameters["rowFilter.disclaimers.created_at"];
+          name?: parameters["rowFilter.disclaimers.name"];
+          description?: parameters["rowFilter.disclaimers.description"];
+          section?: parameters["rowFilter.disclaimers.section"];
+        };
+        body: {
+          /** disclaimers */
+          disclaimers?: definitions["disclaimers"];
         };
         header: {
           /** Preference */
@@ -2950,6 +3189,26 @@ export interface definitions {
     /** Format: character varying */
     basket_status: string;
   };
+  clientview: {
+    /**
+     * Format: uuid
+     * @description Note:
+     * This is a Primary Key.<pk/>
+     */
+    id?: string;
+    /** Format: character varying */
+    phone?: string;
+    /** Format: character varying */
+    email?: string;
+    /** Format: character varying */
+    first_name?: string;
+    /** Format: character varying */
+    last_name?: string;
+    /** Format: character varying */
+    role?: string;
+    /** Format: character varying */
+    user_status?: string;
+  };
   campaign_has_services: {
     /**
      * Format: uuid
@@ -3084,6 +3343,29 @@ export interface definitions {
      */
     service_id?: string;
   };
+  order_has_disclaimers: {
+    /**
+     * Format: uuid
+     * @description Note:
+     * This is a Primary Key.<pk/>
+     * This is a Foreign Key to `orders.id`.<fk table='orders' column='id'/>
+     */
+    order: string;
+    /**
+     * Format: timestamp with time zone
+     * @default now()
+     */
+    created_at?: string;
+    /**
+     * Format: uuid
+     * @description Note:
+     * This is a Primary Key.<pk/>
+     * This is a Foreign Key to `disclaimers.id`.<fk table='disclaimers' column='id'/>
+     */
+    disclaimer: string;
+    /** Format: boolean */
+    status?: boolean;
+  };
   message: {
     /**
      * Format: uuid
@@ -3204,7 +3486,7 @@ export interface definitions {
     duration?: number;
     /** Format: double precision */
     price?: number;
-    /** Format: text */
+    /** Format: character varying */
     image?: string;
     /**
      * Format: uuid
@@ -3212,6 +3494,11 @@ export interface definitions {
      * This is a Foreign Key to `category.id`.<fk table='category' column='id'/>
      */
     category?: string;
+    /**
+     * Format: smallint
+     * @description primary or auxiliary(1 or 2)
+     */
+    type: number;
   };
   ratings: {
     /**
@@ -3361,6 +3648,26 @@ export interface definitions {
      * @default false
      */
     carousel?: boolean;
+  };
+  disclaimers: {
+    /**
+     * Format: uuid
+     * @description Note:
+     * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
+     */
+    id: string;
+    /**
+     * Format: timestamp with time zone
+     * @default now()
+     */
+    created_at?: string;
+    /** Format: character varying */
+    name: string;
+    /** Format: text */
+    description: string;
+    /** Format: character varying */
+    section?: string;
   };
   special_days: {
     /**
@@ -3676,6 +3983,22 @@ export interface parameters {
   "rowFilter.basket_status.created_at": string;
   /** Format: character varying */
   "rowFilter.basket_status.basket_status": string;
+  /** @description clientview */
+  "body.clientview": definitions["clientview"];
+  /** Format: uuid */
+  "rowFilter.clientview.id": string;
+  /** Format: character varying */
+  "rowFilter.clientview.phone": string;
+  /** Format: character varying */
+  "rowFilter.clientview.email": string;
+  /** Format: character varying */
+  "rowFilter.clientview.first_name": string;
+  /** Format: character varying */
+  "rowFilter.clientview.last_name": string;
+  /** Format: character varying */
+  "rowFilter.clientview.role": string;
+  /** Format: character varying */
+  "rowFilter.clientview.user_status": string;
   /** @description campaign_has_services */
   "body.campaign_has_services": definitions["campaign_has_services"];
   /** Format: uuid */
@@ -3750,6 +4073,16 @@ export interface parameters {
   "rowFilter.comments.client_id": string;
   /** Format: uuid */
   "rowFilter.comments.service_id": string;
+  /** @description order_has_disclaimers */
+  "body.order_has_disclaimers": definitions["order_has_disclaimers"];
+  /** Format: uuid */
+  "rowFilter.order_has_disclaimers.order": string;
+  /** Format: timestamp with time zone */
+  "rowFilter.order_has_disclaimers.created_at": string;
+  /** Format: uuid */
+  "rowFilter.order_has_disclaimers.disclaimer": string;
+  /** Format: boolean */
+  "rowFilter.order_has_disclaimers.status": string;
   /** @description message */
   "body.message": definitions["message"];
   /** Format: uuid */
@@ -3826,10 +4159,15 @@ export interface parameters {
   "rowFilter.services.duration": string;
   /** Format: double precision */
   "rowFilter.services.price": string;
-  /** Format: text */
+  /** Format: character varying */
   "rowFilter.services.image": string;
   /** Format: uuid */
   "rowFilter.services.category": string;
+  /**
+   * Format: smallint
+   * @description primary or auxiliary(1 or 2)
+   */
+  "rowFilter.services.type": string;
   /** @description ratings */
   "body.ratings": definitions["ratings"];
   /** Format: uuid */
@@ -3896,6 +4234,18 @@ export interface parameters {
   "rowFilter.images.gallery": string;
   /** Format: boolean */
   "rowFilter.images.carousel": string;
+  /** @description disclaimers */
+  "body.disclaimers": definitions["disclaimers"];
+  /** Format: uuid */
+  "rowFilter.disclaimers.id": string;
+  /** Format: timestamp with time zone */
+  "rowFilter.disclaimers.created_at": string;
+  /** Format: character varying */
+  "rowFilter.disclaimers.name": string;
+  /** Format: text */
+  "rowFilter.disclaimers.description": string;
+  /** Format: character varying */
+  "rowFilter.disclaimers.section": string;
   /** @description special_days */
   "body.special_days": definitions["special_days"];
   /** Format: uuid */
