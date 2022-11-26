@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Service } from '../../types/db/dbTypes';
 import CheckboxName from './CheckboxName';
 import PriceOrDurationBox, { TypeValues } from './PriceOrDurationBox';
 
@@ -6,12 +7,9 @@ export enum UseTypeValues {
   MAIN = 'main',
   SECOND = 'second',
 }
+type DisplayService = Pick<Service, 'name' | 'price' | 'duration' | 'id'>;
 
-type ProductItemProps = {
-  serviceName: string;
-  duration: string | number;
-  price: string | number;
-  id: string;
+type ProductItemProps = DisplayService & {
   use: UseTypeValues;
   onMainChangeHandler: () => void;
   mainChecked?: boolean;
@@ -19,7 +17,7 @@ type ProductItemProps = {
 };
 
 const ProductItem: FC<ProductItemProps> = ({
-  serviceName,
+  name,
   duration,
   price,
   onMainChangeHandler,
@@ -38,7 +36,7 @@ const ProductItem: FC<ProductItemProps> = ({
         }
       >
         <CheckboxName
-          serviceName={serviceName}
+          name={name}
           id={id}
           onMainChangeHandler={onMainChangeHandler}
           checked={checked}
@@ -46,10 +44,14 @@ const ProductItem: FC<ProductItemProps> = ({
       </div>
       <PriceOrDurationBox
         type={TypeValues.DURATION}
-        value={duration}
+        value={duration ?? 0}
         use={use}
       />
-      <PriceOrDurationBox type={TypeValues.PRICE} value={price} use={use} />
+      <PriceOrDurationBox
+        type={TypeValues.PRICE}
+        value={price ?? 0}
+        use={use}
+      />
       {use === UseTypeValues.MAIN && mainChecked && (
         <p className='col-start-2 col-span-10 text-xs'>extra:</p>
       )}

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import ProductList from './ProductLIst';
+import ProductList from './ProductList';
 import TableHeader from './TableHeader';
 const ProductTable: FC = () => {
   return (

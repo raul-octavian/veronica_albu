@@ -1,8 +1,8 @@
 export type Service = {
   id: string;
-  serviceName: string;
-  duration: number | string;
-  price: number | string;
+  name: string;
+  duration: number;
+  price: number;
   category: string;
   type: number | string;
   compatible?: string[];

@@ -11,7 +11,7 @@ import TableHeader from '../productTable/TableHeader';
 const mockBasket: BasketService[] = [
   {
     id: '001',
-    serviceName: 'manichiura simpla',
+    name: 'manichiura simpla',
     duration: 90,
     price: 150,
     category: 'manichiura',
@@ -21,7 +21,7 @@ const mockBasket: BasketService[] = [
   },
   {
     id: '003',
-    serviceName: 'masaj degete',
+    name: 'masaj degete',
     duration: 15,
     price: 30,
     category: 'manichiura',
@@ -31,7 +31,7 @@ const mockBasket: BasketService[] = [
   },
   {
     id: '002',
-    serviceName: 'manichiura cu gel',
+    name: 'manichiura cu gel',
     duration: 120,
     price: 250,
     category: 'manichiura',
@@ -41,7 +41,7 @@ const mockBasket: BasketService[] = [
   },
   {
     id: '004',
-    serviceName: 'pedichiura',
+    name: 'pedichiura',
     duration: 120,
     price: 250,
     category: 'pedichiura',
@@ -90,11 +90,11 @@ const Basket: FC = () => {
         <div className='border border-accent-main'>
           <div className='p-4 pb-0 my-2 '>
             <div>
-              {basket.map(({ serviceName, duration, price, id, type }) => (
+              {basket.map(({ name, duration, price, id, type }) => (
                 <ProductItem
-                  serviceName={serviceName}
-                  duration={duration}
-                  price={price}
+                  name={name}
+                  duration={duration ?? 0}
+                  price={price ?? 0}
                   id={id}
                   use={type === 1 ? UseTypeValues.MAIN : UseTypeValues.SECOND}
                   onMainChangeHandler={() => null}
@@ -106,7 +106,7 @@ const Basket: FC = () => {
             <div className=' border-t border-accent-main mt-8 py-4'>
               <div>
                 <CheckboxName
-                  serviceName='am luat la  cunostiata ca durata totala este o estimare a timpului necesar fiecari preceduri si poate suferii modificari.'
+                  name='am luat la  cunostiata ca durata totala este o estimare a timpului necesar fiecari preceduri si poate suferii modificari.'
                   id='Dis_time'
                   onMainChangeHandler={() => onChangeHandler(setTimeDisclaimer)}
                 />
@@ -114,7 +114,7 @@ const Basket: FC = () => {
 
               <div>
                 <CheckboxName
-                  serviceName='am luat la  cunostiata ca pretul este pentru procedurile selectate si orice proceduri adaugate la fata locului pot influenta pretul final.'
+                  name='am luat la  cunostiata ca pretul este pentru procedurile selectate si orice proceduri adaugate la fata locului pot influenta pretul final.'
                   id='Dis_price'
                   onMainChangeHandler={() =>
                     onChangeHandler(setPriceDisclaimer)

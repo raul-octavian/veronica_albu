@@ -1,5 +1,5 @@
-import type { definitions } from '../../../types/supabase';
+import { Database } from '../databaseSchema';
 
-export type Client = definitions['clients'];
-export type Service = definitions['services'];
-export type FullClient = definitions['clientview'];
+export type Tables = Database['public']['Tables'];
+
+export type Service = Tables['services']['Row'];

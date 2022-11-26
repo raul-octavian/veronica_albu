@@ -4,7 +4,7 @@ const SecondaryProducts: FC = () => {
   return (
     <div>
       <ProductItem
-        serviceName='Masaj degete'
+        name='Masaj degete'
         duration={15}
         price={25}
         id='002'
@@ -12,7 +12,7 @@ const SecondaryProducts: FC = () => {
         onMainChangeHandler={() => null}
       />
       <ProductItem
-        serviceName='Baie de ulei'
+        name='Baie de ulei'
         duration={10}
         price={20}
         id='003'
@@ -20,7 +20,7 @@ const SecondaryProducts: FC = () => {
         onMainChangeHandler={() => null}
       />
       <ProductItem
-        serviceName='Lipit ornament'
+        name='Lipit ornament'
         duration={5}
         price={5}
         id='004'

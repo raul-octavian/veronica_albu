@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 type CheckboxNameProps = {
-  serviceName: string;
+  name: string;
   id: string;
   onMainChangeHandler: () => void;
   checked?: boolean;
@@ -9,7 +9,7 @@ type CheckboxNameProps = {
 
 const CheckboxName: FC<CheckboxNameProps> = ({
   id,
-  serviceName,
+  name,
   onMainChangeHandler,
   checked,
 }) => {
@@ -24,7 +24,7 @@ const CheckboxName: FC<CheckboxNameProps> = ({
         defaultChecked={checked}
       />
       <label htmlFor={id} className='text-left tracking-wider font-body'>
-        {serviceName}
+        {name}
       </label>
     </div>
   );

@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Service } from '../../types/service';
+import { Service } from '../../types/db/dbTypes';
 import ProductItem, { UseTypeValues } from './ProductItem';
 import SecondaryProducts from './SecodaryProducts';
 
@@ -14,12 +14,12 @@ const ProductElement: FC<ProductServiceProps> = ({ service }) => {
     setMainChecked((checked) => !checked);
   };
 
-  const { serviceName, duration, price, id, type } = service;
+  const { name, duration, price, id, type } = service;
 
   return (
     <div className='p-4 border border-accent-main my-2 '>
       <ProductItem
-        serviceName={serviceName}
+        name={name}
         duration={duration}
         price={price}
         id={id}
