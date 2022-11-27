@@ -1,12 +1,11 @@
-import { AuthError } from '@supabase/supabase-js';
+import { AuthError, PostgrestError } from '@supabase/supabase-js';
 import { FC, useState } from 'react';
-
 import { useForm, SubmitHandler } from 'react-hook-form';
+
+import supabase from '../../supabase';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { PostgrestError } from 'react-supabase';
 import Button from '../../components/navigation/Button';
 import { useSessionContext } from '../../contexts/sessionContext';
-import supabase from '../../supabase';
 import { validateEmail } from '../../utils/regex';
 import { requiredRes } from '../../utils/ValidationResponces';
 
@@ -35,9 +34,10 @@ const LoginForm: FC = () => {
       password: inputs.password,
     });
 
-    data?.session && setSession(data?.session);
     error && setError(() => error);
     !error && location.pathname === '/login' && navigate('/');
+
+    data?.session && setSession(data?.session);
   };
 
   return (
