@@ -1,9 +1,10 @@
 import { createContext, useContext } from 'react';
 import { BasketHasService } from '../types/db/dbTypes';
+import { SetNewService } from '../types/setTypes/setTypes';
 
 type NewServiceToBasketProp = {
   newService: BasketHasService;
-  setNewService: React.Dispatch<React.SetStateAction<BasketHasService>>;
+  setNewService: SetNewService;
 };
 
 const NewServiceToBasketContext = createContext<NewServiceToBasketProp>(

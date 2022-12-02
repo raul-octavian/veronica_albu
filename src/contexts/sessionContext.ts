@@ -1,9 +1,10 @@
 import { Session } from '@supabase/supabase-js';
 import { createContext, useContext } from 'react';
+import { SetSession } from '../types/setTypes/setTypes';
 
 type SessionProviderProp = {
   session: Session;
-  setSession: React.Dispatch<React.SetStateAction<Session>>;
+  setSession: SetSession;
 };
 
 const SessionContext = createContext<SessionProviderProp>(

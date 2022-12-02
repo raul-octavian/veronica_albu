@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
-import useGetBasket from '../../hooks/query/useGetBasket';
+import { useBasketContext } from '../../contexts/basketContext';
+import { ComponentNames } from '../../types/constants/componentNames';
 import LargeButton from '../buttons/LargeButton';
 import FetchError from '../errors/FetchError';
 import CheckboxName from '../productTable/CheckboxName';
@@ -23,7 +24,8 @@ const Basket: FC = () => {
   };
 
   const getDisclainers = () => !priceDisclaimer || !timeDisclaimer;
-  const { basket, basketFetchError } = useGetBasket();
+
+  const { basket, basketFetchError } = useBasketContext();
 
   useEffect(() => {
     const getTotalDuration = basket?.reduce((acc, curr) => {
@@ -78,6 +80,7 @@ const Basket: FC = () => {
                         onMainChangeHandler={() => null}
                         checked={true}
                         key={index}
+                        location={ComponentNames.BASKET}
                       />
                     )
                   )}
