@@ -6,8 +6,8 @@ import { Basket } from '../../types/db/dbTypes';
 
 const useAddServiceToBasket = () => {
   const [newBasket, setNewBasket] = useState<Basket>();
-  const [basketHasService, setBasketHasService] = useState(false);
   const { session } = useSessionContext();
+  const [error, setError] = useState('');
 
   const { setNewService } = useNewServiceToBasketContext();
 
@@ -29,14 +29,17 @@ const useAddServiceToBasket = () => {
       .select('*')
       .eq('basket_id', basketId);
 
+    console.log('2', { basket_has_services });
+
     if (basket_has_services) {
-      setBasketHasService(
-        !!basket_has_services.find((basket) => basket.service_id === service)
+      return !!basket_has_services.find(
+        (basket) => basket.service_id === service
       );
     }
+    return false;
   };
 
-  const addServiceToBasket = (basketId: string, service: string) => {
+  const addServiceToBasket = async (basketId: string, service: string) => {
     const addToBasket = async (basketId: string, service: string) => {
       const { data, error } = await supabase
         .from('basket_has_services')
@@ -52,12 +55,16 @@ const useAddServiceToBasket = () => {
     };
 
     if (basketId) {
-      console.log('is basket');
-      isServiceInBasket(basketId, service);
-      console.log('* \n\n\n', basketHasService, '\n\n\n\n');
+      console.log('1 is basket');
+      const basketHasService = await isServiceInBasket(basketId, service);
+      console.log(
+        '* 3  basket has service \n\n\n',
+        basketHasService,
+        '\n\n\n\n'
+      );
       !basketHasService
         ? addToBasket(basketId, service)
-        : console.log('product exists on basket');
+        : setError('produsul este deja in cos');
     } else {
       console.log('new basket');
       createBasket();
@@ -65,7 +72,7 @@ const useAddServiceToBasket = () => {
     }
   };
 
-  return { addServiceToBasket };
+  return { addServiceToBasket, error };
 };
 
 export default useAddServiceToBasket;

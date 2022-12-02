@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Service } from '../../types/db/dbTypes';
 import CheckboxName from './CheckboxName';
 import PriceOrDurationBox, { TypeValues } from './PriceOrDurationBox';
+import { ComponentNames } from '../../types/constants/componentNames';
 
 export enum UseTypeValues {
   MAIN = 'main',
@@ -14,6 +15,7 @@ type ProductItemProps = DisplayService & {
   onMainChangeHandler: () => void;
   mainChecked?: boolean;
   checked?: boolean;
+  location?: ComponentNames;
 };
 
 const ProductItem: FC<ProductItemProps> = ({
@@ -25,6 +27,7 @@ const ProductItem: FC<ProductItemProps> = ({
   use,
   mainChecked = false,
   checked,
+  location,
 }) => {
   return (
     <div className='grid grid-flow-row-dense grid-cols-12 auto-rows-max'>
@@ -40,6 +43,7 @@ const ProductItem: FC<ProductItemProps> = ({
           id={id}
           onMainChangeHandler={onMainChangeHandler}
           checked={checked}
+          location={location}
         />
       </div>
       <PriceOrDurationBox
