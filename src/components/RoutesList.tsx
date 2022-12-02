@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import About from './pages/About';
-import Bookings from './pages/Bookings';
-import Gallery from './pages/Gallery';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import MyAccount from './pages/MyAccount';
-import Register from './pages/Register';
+import About from '../pages/About';
+import Bookings from '../pages/Bookings';
+import Gallery from '../pages/Gallery';
+import Home from '../pages/Home';
+import Login from '../pages/Login';
+import MyAccount from '../pages/MyAccount';
+import Register from '../pages/Register';
 
 export enum ShowState {
   ALL = 'all',

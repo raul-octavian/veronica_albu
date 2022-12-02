@@ -3,7 +3,7 @@ import Footer from './components/footer/Footer';
 import Navigation from './components/navigation/Navigation';
 import SessionContext from './contexts/sessionContext';
 import useSession from './hooks/useSession';
-import RoutesList from './RoutesList';
+import RoutesList from './components/RoutesList';
 
 function App() {
   const { session, setSession } = useSession();
