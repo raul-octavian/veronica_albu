@@ -78,8 +78,8 @@ const Basket: FC = () => {
                           type === 1 ? UseTypeValues.MAIN : UseTypeValues.SECOND
                         }
                         onMainChangeHandler={() => null}
-                        checked={true}
-                        key={index}
+                        checked={false}
+                        key={service_id}
                         location={ComponentNames.BASKET}
                       />
                     )

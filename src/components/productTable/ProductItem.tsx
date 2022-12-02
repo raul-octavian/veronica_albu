@@ -42,7 +42,7 @@ const ProductItem: FC<ProductItemProps> = ({
           name={name}
           id={id}
           onMainChangeHandler={onMainChangeHandler}
-          checked={checked}
+          checked={location === ComponentNames.BASKET}
           location={location}
         />
       </div>

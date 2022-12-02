@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { useBasketContext } from '../../contexts/basketContext';
 import useAddServiceToBasket from '../../hooks/query/useAddServiceToBasket';
+import useDeleteServiceFromBasket from '../../hooks/query/useDeleteServiceFromBasket';
+import useGetBasketId from '../../hooks/query/useGetBasketId';
 
 import { ComponentNames } from '../../types/constants/componentNames';
 import { BasketView } from '../../types/db/dbTypes';
@@ -22,19 +24,27 @@ const CheckboxName: FC<CheckboxNameProps> = ({
 }) => {
   const { addServiceToBasket, error } = useAddServiceToBasket();
   const { basket } = useBasketContext();
+  const { useBasketId } = useGetBasketId();
+  const { deleteServiceFromBasket } = useDeleteServiceFromBasket();
 
-  const onClickHandler = () => {
+  const useOnClickHandler = async () => {
+    const basketId = await useBasketId();
     if (!checked) {
-      basket
-        ? addServiceToBasket(basket[0]?.basket_id ?? '', id)
+      basketId
+        ? addServiceToBasket(basketId ?? '', id)
         : addServiceToBasket('', id);
     } else {
+      location === ComponentNames.BASKET &&
+        basket?.length &&
+        basket[0].basket_id &&
+        deleteServiceFromBasket(basket[0].basket_id, id);
     }
   };
 
   const isProductInBasket = (basket: BasketView[] | null, id: string) => {
     return !!basket?.find((item) => item.service_id === id);
   };
+
   return (
     <>
       <div className='flex justify-start align-middle gap-2'>
@@ -44,8 +54,8 @@ const CheckboxName: FC<CheckboxNameProps> = ({
           id={id}
           className='accent-accent-main'
           onChange={() => onMainChangeHandler()}
-          defaultChecked={checked}
-          onClick={onClickHandler}
+          defaultChecked={isProductInBasket(basket, id)}
+          onClick={useOnClickHandler}
           data-test='checkbox'
           disabled={
             location === ComponentNames.PRODUCT_LIST &&

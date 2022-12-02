@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNewServiceToBasketContext } from '../../contexts/newServiceToBasket';
+import { useNewServiceToBasketContext } from '../../contexts/newServiceToBasketContext';
 import { useSessionContext } from '../../contexts/sessionContext';
 import supabase from '../../supabase';
 import { Basket } from '../../types/db/dbTypes';
@@ -55,18 +55,11 @@ const useAddServiceToBasket = () => {
     };
 
     if (basketId) {
-      console.log('1 is basket');
       const basketHasService = await isServiceInBasket(basketId, service);
-      console.log(
-        '* 3  basket has service \n\n\n',
-        basketHasService,
-        '\n\n\n\n'
-      );
       !basketHasService
         ? addToBasket(basketId, service)
         : setError('produsul este deja in cos');
     } else {
-      console.log('new basket');
       createBasket();
       newBasket && addToBasket(newBasket?.id, service);
     }

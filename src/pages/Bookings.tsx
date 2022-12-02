@@ -10,7 +10,8 @@ import TextBoxContainer from '../components/textBox/TextBoxContainer';
 import TextBoxHeader from '../components/textBox/TextBoxHeader';
 import ThankYou from '../components/thankYou/ThankYou';
 import BasketContext from '../contexts/basketContext';
-import NewServiceToBasketContext from '../contexts/newServiceToBasket';
+import DeletedServiceFromBasketContext from '../contexts/deletedServiceFromBasketContext';
+import NewServiceToBasketContext from '../contexts/newServiceToBasketContext';
 import { ServicesContext } from '../contexts/servicesContext';
 import { useSessionContext } from '../contexts/sessionContext';
 import useGetBasket from '../hooks/query/useGetBasket';
@@ -22,8 +23,11 @@ const Bookings = () => {
   const { session } = useSessionContext();
   const userNotLoggedIn = !session?.user?.id;
 
-  const { services, fetchError } = useGetServices();
+  const { services, fetchError, fetchServices } = useGetServices();
   const [newService, setNewService] = useState<BasketHasService>(
+    {} as BasketHasService
+  );
+  const [deletedService, setDeletedService] = useState<BasketHasService>(
     {} as BasketHasService
   );
 
@@ -36,8 +40,9 @@ const Bookings = () => {
   useEffect(() => {
     if (session.user) {
       fetchBasket(setBasket, setBasketFetchError);
+      fetchServices();
     }
-  }, [newService, session]);
+  }, [newService, session, deletedService]);
 
   if (userNotLoggedIn) {
     return (
@@ -62,32 +67,36 @@ const Bookings = () => {
   return (
     <>
       <NewServiceToBasketContext.Provider value={{ newService, setNewService }}>
-        <TextBoxHeader>
-          <h1 className='text-accent-main text-2xl font-heading'>
-            Serviciile mele
-          </h1>
-        </TextBoxHeader>
-        <Intro></Intro>
-        <BasketContext.Provider
-          value={{ basket, setBasket, basketFetchError, setBasketFetchError }}
+        <DeletedServiceFromBasketContext.Provider
+          value={{ deletedService, setDeletedService }}
         >
+          <TextBoxHeader>
+            <h1 className='text-accent-main text-2xl font-heading'>
+              Serviciile mele
+            </h1>
+          </TextBoxHeader>
+          <Intro></Intro>
+          <BasketContext.Provider
+            value={{ basket, setBasket, basketFetchError, setBasketFetchError }}
+          >
+            <TextBoxContainer w='[80%]' lgW='[80%]'>
+              <TableTitle title='Lista de servicii' />
+              <ServicesContext.Provider value={services}>
+                {fetchError && <FetchError error={fetchError}></FetchError>}
+                <ProductTable />
+              </ServicesContext.Provider>
+            </TextBoxContainer>
+            <TextBoxContainer w='[80%]' lgW='[80%]'>
+              <TableTitle title='Cosul meu' />
+              <Basket />
+            </TextBoxContainer>
+          </BasketContext.Provider>
           <TextBoxContainer w='[80%]' lgW='[80%]'>
-            <TableTitle title='Lista de servicii' />
-            <ServicesContext.Provider value={services}>
-              {fetchError && <FetchError error={fetchError}></FetchError>}
-              <ProductTable />
-            </ServicesContext.Provider>
-          </TextBoxContainer>
-          <TextBoxContainer w='[80%]' lgW='[80%]'>
-            <TableTitle title='Cosul meu' />
-            <Basket />
-          </TextBoxContainer>
-        </BasketContext.Provider>
-        <TextBoxContainer w='[80%]' lgW='[80%]'>
-          <TableTitle title='Multumesc' />
+            <TableTitle title='Multumesc' />
 
-          <ThankYou />
-        </TextBoxContainer>
+            <ThankYou />
+          </TextBoxContainer>
+        </DeletedServiceFromBasketContext.Provider>
       </NewServiceToBasketContext.Provider>
     </>
   );

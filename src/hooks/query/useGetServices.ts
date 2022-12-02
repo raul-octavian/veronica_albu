@@ -22,11 +22,7 @@ const useGetServices = () => {
     }
   };
 
-  useEffect(() => {
-    fetchServices();
-  }, []);
-
-  return { services, fetchError };
+  return { services, fetchError, fetchServices };
 };
 
 export default useGetServices;
