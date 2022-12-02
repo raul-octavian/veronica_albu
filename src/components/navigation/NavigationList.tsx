@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSessionContext } from '../../contexts/sessionContext';
-import { allRoutes, RoutesType, ShowState } from '../../RoutesList';
+import { allRoutes, RoutesType, ShowState } from '../RoutesList';
 
 type NavigationListProps = {
   onClickHandler?: (value: React.SetStateAction<boolean>) => void;
