@@ -1,25 +1,19 @@
-import { PostgrestError } from '@supabase/supabase-js';
-import { useEffect, useState } from 'react';
-import { useNewServiceToBasketContext } from '../../contexts/newServiceToBasket';
 import { useSessionContext } from '../../contexts/sessionContext';
 import supabase from '../../supabase';
 import { BasketStatusValues } from '../../types/db/dbEnums';
-import { BasketView } from '../../types/db/dbTypes';
+import { SetBasket, SetError } from '../../types/setTypes/setTypes';
 
 const useGetBasket = () => {
-  const [basket, setBasket] = useState<BasketView[] | null>(null);
-  const [basketFetchError, setBasketFetchError] =
-    useState<PostgrestError | null>(null);
-
   const { session } = useSessionContext();
 
-  const { newService } = useNewServiceToBasketContext();
-
-  const fetchBasket = async () => {
+  const fetchBasket = async (
+    setBasket: SetBasket,
+    setBasketFetchError: SetError
+  ) => {
     const { data, error } = await supabase
       .from('basketview')
       .select(`*`)
-      .eq('client_id', session.user.id)
+      .eq('client_id', session?.user?.id)
       .ilike('basket_status', BasketStatusValues.OPEN);
     if (error) {
       setBasketFetchError(error);
@@ -34,13 +28,7 @@ const useGetBasket = () => {
     }
   };
 
-  console.log(newService);
-
-  useEffect(() => {
-    fetchBasket();
-  }, [newService]);
-
-  return { basket, basketFetchError, fetchBasket };
+  return { fetchBasket };
 };
 
 export default useGetBasket;
