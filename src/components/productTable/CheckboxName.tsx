@@ -1,4 +1,6 @@
 import { FC } from 'react';
+import useAddServiceToBasket from '../../hooks/query/useAddServiceToBasket';
+import useGetBasket from '../../hooks/query/useGetBasket';
 
 type CheckboxNameProps = {
   name: string;
@@ -13,6 +15,17 @@ const CheckboxName: FC<CheckboxNameProps> = ({
   onMainChangeHandler,
   checked,
 }) => {
+  const { addServiceToBasket } = useAddServiceToBasket();
+  const { basket } = useGetBasket();
+
+  const onClickHandler = () => {
+    if (!checked) {
+      basket
+        ? addServiceToBasket(basket[0]?.basket_id ?? '', id)
+        : addServiceToBasket('', id);
+    } else {
+    }
+  };
   return (
     <div className='flex justify-start align-middle gap-2'>
       <input
@@ -22,6 +35,8 @@ const CheckboxName: FC<CheckboxNameProps> = ({
         className='accent-accent-main'
         onChange={() => onMainChangeHandler()}
         defaultChecked={checked}
+        onClick={onClickHandler}
+        data-test='checkbox'
       />
       <label htmlFor={id} className='text-left tracking-wider font-body'>
         {name}

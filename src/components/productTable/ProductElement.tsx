@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { Service } from '../../types/db/dbTypes';
 import ProductItem, { UseTypeValues } from './ProductItem';
-import SecondaryProducts from './SecodaryProducts';
+// import SecondaryProducts from './SecodaryProducts';
 
 type ProductServiceProps = {
   service: Service;
@@ -26,8 +26,9 @@ const ProductElement: FC<ProductServiceProps> = ({ service }) => {
         use={type === 1 ? UseTypeValues.MAIN : UseTypeValues.SECOND}
         onMainChangeHandler={onMainChangeHandler}
         mainChecked={mainChecked}
+        checked={false}
       />
-      {mainChecked && <SecondaryProducts />}
+      {/* {mainChecked && <SecondaryProducts />} */}
     </div>
   );
 };

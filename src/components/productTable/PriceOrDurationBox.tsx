@@ -20,7 +20,7 @@ const PriceOrDurationBox: FC<PriceOrDurationBoxProps> = ({
   use,
 }) => {
   return (
-    <div className='col-span-3'>
+    <div className='col-span-3 flex justify-center items-center'>
       <p
         className={
           use === UseTypeValues.MAIN

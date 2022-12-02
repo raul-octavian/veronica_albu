@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Basket from '../components/basket/Basket';
 import Intro from '../components/booking/Intro';
 import FetchError from '../components/errors/FetchError';
@@ -6,17 +7,21 @@ import ProductTable from '../components/productTable/ProductTable';
 import TableTitle from '../components/productTable/TableTitle';
 import TextBoxContainer from '../components/textBox/TextBoxContainer';
 import TextBoxHeader from '../components/textBox/TextBoxHeader';
-import TextBoxWithCtaAndImage from '../components/textBox/TextBoxWithCtaAndImage';
 import ThankYou from '../components/thankYou/ThankYou';
+import NewServiceToBasketContext from '../contexts/newServiceToBasket';
 import { ServicesContext } from '../contexts/servicesContext';
 import { useSessionContext } from '../contexts/sessionContext';
 import useGetServices from '../hooks/query/useGetServices';
+import { BasketHasService } from '../types/db/dbTypes';
 
 const Bookings = () => {
   const { session } = useSessionContext();
   const userNotLoggedIn = !session?.user?.id;
 
   const { services, fetchError } = useGetServices();
+  const [newService, setNewService] = useState<BasketHasService>(
+    {} as BasketHasService
+  );
 
   if (userNotLoggedIn) {
     return (
@@ -40,29 +45,30 @@ const Bookings = () => {
 
   return (
     <>
-      <TextBoxHeader>
-        <h1 className='text-accent-main text-2xl font-heading'>
-          Serviciile mele
-        </h1>
-      </TextBoxHeader>
-      <Intro></Intro>
+      <NewServiceToBasketContext.Provider value={{ newService, setNewService }}>
+        <TextBoxHeader>
+          <h1 className='text-accent-main text-2xl font-heading'>
+            Serviciile mele
+          </h1>
+        </TextBoxHeader>
+        <Intro></Intro>
+        <TextBoxContainer w='[80%]' lgW='[80%]'>
+          <TableTitle title='Lista de servicii' />
+          <ServicesContext.Provider value={services}>
+            {fetchError && <FetchError error={fetchError}></FetchError>}
+            <ProductTable />
+          </ServicesContext.Provider>
+        </TextBoxContainer>
+        <TextBoxContainer w='[80%]' lgW='[80%]'>
+          <TableTitle title='Cosul meu' />
+          <Basket />
+        </TextBoxContainer>
+        <TextBoxContainer w='[80%]' lgW='[80%]'>
+          <TableTitle title='Multumesc' />
 
-      <TextBoxContainer w='[80%]' lgW='[80%]'>
-        <TableTitle title='Lista de servicii' />
-        <ServicesContext.Provider value={services}>
-          {fetchError && <FetchError error={fetchError}></FetchError>}
-          <ProductTable />
-        </ServicesContext.Provider>
-      </TextBoxContainer>
-      <TextBoxContainer w='[80%]' lgW='[80%]'>
-        <TableTitle title='Cosul meu' />
-        <Basket />
-      </TextBoxContainer>
-      <TextBoxContainer w='[80%]' lgW='[80%]'>
-        <TableTitle title='Multumesc' />
-
-        <ThankYou />
-      </TextBoxContainer>
+          <ThankYou />
+        </TextBoxContainer>
+      </NewServiceToBasketContext.Provider>
     </>
   );
 };

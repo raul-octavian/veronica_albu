@@ -17,8 +17,6 @@ const NavigationList: FC<NavigationListProps> = ({
   const { session } = useSessionContext();
   const [activeRoutes, setActiveRoutes] = useState<RoutesType[]>(allRoutes);
 
-
-
   useEffect(() => {
     const value = session?.user?.id ? ShowState.OUT : ShowState.IN;
     const routes = allRoutes.filter((item) => item.show !== value);
