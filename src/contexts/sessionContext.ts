@@ -1,6 +1,6 @@
 import { Session } from '@supabase/supabase-js';
 import { createContext, useContext } from 'react';
-import { SetSession } from '../types/setTypes/setTypes';
+import { SetSession } from '../types/setTypes';
 
 type SessionProviderProp = {
   session: Session;

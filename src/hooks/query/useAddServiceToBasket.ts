@@ -29,7 +29,7 @@ const useAddServiceToBasket = () => {
       .select('*')
       .eq('basket_id', basketId);
 
-    console.log('2', { basket_has_services });
+    error && console.log(error);
 
     if (basket_has_services) {
       return !!basket_has_services.find(
@@ -58,7 +58,7 @@ const useAddServiceToBasket = () => {
       const basketHasService = await isServiceInBasket(basketId, service);
       !basketHasService
         ? addToBasket(basketId, service)
-        : setError('produsul este deja in cos');
+        : setError('Serviciul este deja in cos');
     } else {
       createBasket();
       newBasket && addToBasket(newBasket?.id, service);

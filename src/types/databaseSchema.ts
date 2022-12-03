@@ -11,258 +11,258 @@ export interface Database {
     Tables: {
       articles: {
         Row: {
-          id: string
-          created_at: string | null
           name: string | null
           image: string | null
           content: string | null
           release_date: string | null
           author: string | null
+          id: string
+          created_at: string | null
         }
         Insert: {
-          id?: string
-          created_at?: string | null
           name?: string | null
           image?: string | null
           content?: string | null
           release_date?: string | null
           author?: string | null
+          id?: string
+          created_at?: string | null
         }
         Update: {
-          id?: string
-          created_at?: string | null
           name?: string | null
           image?: string | null
           content?: string | null
           release_date?: string | null
           author?: string | null
+          id?: string
+          created_at?: string | null
         }
       }
       basket: {
         Row: {
+          client_id: string | null
           id: string
           created_at: string | null
           status: string | null
-          client_id: string | null
         }
         Insert: {
+          client_id?: string | null
           id?: string
           created_at?: string | null
           status?: string | null
-          client_id?: string | null
         }
         Update: {
+          client_id?: string | null
           id?: string
           created_at?: string | null
           status?: string | null
-          client_id?: string | null
         }
       }
       basket_has_disclaimers: {
         Row: {
-          basket: string
           created_at: string | null
           disclaimer: string
           status: boolean | null
+          basket: string
         }
         Insert: {
-          basket: string
           created_at?: string | null
           disclaimer: string
           status?: boolean | null
+          basket: string
         }
         Update: {
-          basket?: string
           created_at?: string | null
           disclaimer?: string
           status?: boolean | null
+          basket?: string
         }
       }
       basket_has_services: {
         Row: {
           basket_id: string
-          created_at: string | null
           service_id: string
+          created_at: string | null
         }
         Insert: {
           basket_id: string
-          created_at?: string | null
           service_id: string
+          created_at?: string | null
         }
         Update: {
           basket_id?: string
-          created_at?: string | null
           service_id?: string
+          created_at?: string | null
         }
       }
       basket_status: {
         Row: {
+          value: string
           id: string
           created_at: string | null
-          value: string
         }
         Insert: {
+          value: string
           id?: string
           created_at?: string | null
-          value: string
         }
         Update: {
+          value?: string
           id?: string
           created_at?: string | null
-          value?: string
         }
       }
       business_info: {
         Row: {
-          id: string
-          created_at: string | null
           name: string | null
           email: string | null
           phone: string | null
+          id: string
+          created_at: string | null
           show: boolean | null
         }
         Insert: {
-          id?: string
-          created_at?: string | null
           name?: string | null
           email?: string | null
           phone?: string | null
+          id?: string
+          created_at?: string | null
           show?: boolean | null
         }
         Update: {
-          id?: string
-          created_at?: string | null
           name?: string | null
           email?: string | null
           phone?: string | null
+          id?: string
+          created_at?: string | null
           show?: boolean | null
         }
       }
       campaign_has_services: {
         Row: {
           campaign_id: string
-          created_at: string | null
           service_id: string
+          created_at: string | null
         }
         Insert: {
           campaign_id: string
-          created_at?: string | null
           service_id: string
+          created_at?: string | null
         }
         Update: {
           campaign_id?: string
-          created_at?: string | null
           service_id?: string
+          created_at?: string | null
         }
       }
       campaigns: {
         Row: {
-          id: string
-          created_at: string | null
           start_date: string
           end_date: string
           value: number
           name: string | null
           description: string | null
+          id: string
+          created_at: string | null
         }
         Insert: {
-          id?: string
-          created_at?: string | null
           start_date: string
           end_date: string
           value: number
           name?: string | null
           description?: string | null
-        }
-        Update: {
           id?: string
           created_at?: string | null
+        }
+        Update: {
           start_date?: string
           end_date?: string
           value?: number
           name?: string | null
           description?: string | null
+          id?: string
+          created_at?: string | null
         }
       }
       category: {
         Row: {
+          category_name: string
           id: string
           created_at: string | null
-          category_name: string
         }
         Insert: {
+          category_name: string
           id?: string
           created_at?: string | null
-          category_name: string
         }
         Update: {
+          category_name?: string
           id?: string
           created_at?: string | null
-          category_name?: string
         }
       }
       clients: {
         Row: {
-          id: string
-          created_at: string | null
-          first_name: string
+          last_name: string
           phone: string
           email: string
           last_visit: string | null
+          referred_by: string | null
+          id: string
+          created_at: string | null
           role: string
           user_status: string
-          referred_by: string | null
-          last_name: string
+          first_name: string
         }
         Insert: {
-          id?: string
-          created_at?: string | null
-          first_name: string
+          last_name: string
           phone: string
           email: string
           last_visit?: string | null
-          role?: string
-          user_status?: string
           referred_by?: string | null
-          last_name: string
-        }
-        Update: {
           id?: string
           created_at?: string | null
-          first_name?: string
+          role?: string
+          user_status?: string
+          first_name: string
+        }
+        Update: {
+          last_name?: string
           phone?: string
           email?: string
           last_visit?: string | null
+          referred_by?: string | null
+          id?: string
+          created_at?: string | null
           role?: string
           user_status?: string
-          referred_by?: string | null
-          last_name?: string
+          first_name?: string
         }
       }
       comments: {
         Row: {
-          id: string
-          created_at: string | null
           content: string
           comment_id: string | null
           client_id: string
           service_id: string | null
+          id: string
+          created_at: string | null
         }
         Insert: {
-          id?: string
-          created_at?: string | null
           content: string
           comment_id?: string | null
           client_id: string
           service_id?: string | null
-        }
-        Update: {
           id?: string
           created_at?: string | null
+        }
+        Update: {
           content?: string
           comment_id?: string | null
           client_id?: string
           service_id?: string | null
+          id?: string
+          created_at?: string | null
         }
       }
       disclaimers: {
@@ -291,200 +291,203 @@ export interface Database {
       image_has_likes: {
         Row: {
           client_id: string
-          created_at: string | null
           image_id: string
+          created_at: string | null
           liked: boolean
         }
         Insert: {
           client_id: string
-          created_at?: string | null
           image_id: string
+          created_at?: string | null
           liked?: boolean
         }
         Update: {
           client_id?: string
-          created_at?: string | null
           image_id?: string
+          created_at?: string | null
           liked?: boolean
         }
       }
       images: {
         Row: {
-          id: string
-          created_at: string | null
-          url: string
-          name: string | null
-          show_main: boolean | null
           gallery: boolean | null
           carousel: boolean | null
+          url: string
+          name: string | null
+          id: string
+          created_at: string | null
+          show_main: boolean | null
         }
         Insert: {
-          id?: string
-          created_at?: string | null
+          gallery?: boolean | null
+          carousel?: boolean | null
           url: string
           name?: string | null
-          show_main?: boolean | null
-          gallery?: boolean | null
-          carousel?: boolean | null
-        }
-        Update: {
           id?: string
           created_at?: string | null
-          url?: string
-          name?: string | null
           show_main?: boolean | null
+        }
+        Update: {
           gallery?: boolean | null
           carousel?: boolean | null
+          url?: string
+          name?: string | null
+          id?: string
+          created_at?: string | null
+          show_main?: boolean | null
         }
       }
       message: {
         Row: {
           id: string
-          created_at: string | null
           email: string
           phone: string | null
           content: string
           name: string | null
+          created_at: string | null
           replied: boolean
         }
         Insert: {
           id: string
-          created_at?: string | null
           email: string
           phone?: string | null
           content: string
           name?: string | null
+          created_at?: string | null
           replied?: boolean
         }
         Update: {
           id?: string
-          created_at?: string | null
           email?: string
           phone?: string | null
           content?: string
           name?: string | null
+          created_at?: string | null
           replied?: boolean
         }
       }
       order_status: {
         Row: {
+          order_status: string
           id: string
           created_at: string | null
-          order_status: string
         }
         Insert: {
+          order_status: string
           id?: string
           created_at?: string | null
-          order_status: string
         }
         Update: {
+          order_status?: string
           id?: string
           created_at?: string | null
-          order_status?: string
         }
       }
       orders: {
         Row: {
-          id: string
-          created_at: string | null
+          order_status: string | null
+          start: string | null
+          duration: number | null
           client_id: string | null
           basket: string
-          order_status: string | null
           voucher: string | null
           campaign: string | null
+          id: string
+          created_at: string | null
           value: number | null
-          start: string
-          end: string
+          end: string | null
         }
         Insert: {
-          id?: string
-          created_at?: string | null
+          order_status?: string | null
+          start?: string | null
+          duration?: number | null
           client_id?: string | null
           basket: string
-          order_status?: string | null
           voucher?: string | null
           campaign?: string | null
-          value?: number | null
-          start: string
-          end: string
-        }
-        Update: {
           id?: string
           created_at?: string | null
+          value?: number | null
+          end?: string | null
+        }
+        Update: {
+          order_status?: string | null
+          start?: string | null
+          duration?: number | null
           client_id?: string | null
           basket?: string
-          order_status?: string | null
           voucher?: string | null
           campaign?: string | null
+          id?: string
+          created_at?: string | null
           value?: number | null
-          start?: string
-          end?: string
+          end?: string | null
         }
       }
       page_has_articles: {
         Row: {
           page_id: string
-          index: number | null
           article_id: string
+          index: number | null
         }
         Insert: {
           page_id: string
-          index?: number | null
           article_id: string
+          index?: number | null
         }
         Update: {
           page_id?: string
-          index?: number | null
           article_id?: string
+          index?: number | null
         }
       }
       pages: {
         Row: {
-          id: string
-          created_at: string | null
           name: string | null
           title: string | null
           background: string | null
           sub_header: string | null
           support_text: string | null
+          id: string
+          created_at: string | null
         }
         Insert: {
-          id?: string
-          created_at?: string | null
           name?: string | null
           title?: string | null
           background?: string | null
           sub_header?: string | null
           support_text?: string | null
+          id?: string
+          created_at?: string | null
         }
         Update: {
-          id?: string
-          created_at?: string | null
           name?: string | null
           title?: string | null
           background?: string | null
           sub_header?: string | null
           support_text?: string | null
+          id?: string
+          created_at?: string | null
         }
       }
       ratings: {
         Row: {
           service_id: string
-          created_at: string | null
           value: number | null
           client_id: string
+          created_at: string | null
         }
         Insert: {
           service_id: string
-          created_at?: string | null
           value?: number | null
           client_id: string
+          created_at?: string | null
         }
         Update: {
           service_id?: string
-          created_at?: string | null
           value?: number | null
           client_id?: string
+          created_at?: string | null
         }
       }
       roles: {
@@ -521,105 +524,105 @@ export interface Database {
       service_has_images: {
         Row: {
           service_id: string
-          created_at: string | null
           image_id: string
           index: number | null
+          created_at: string | null
           show: boolean | null
         }
         Insert: {
           service_id: string
-          created_at?: string | null
           image_id: string
           index?: number | null
+          created_at?: string | null
           show?: boolean | null
         }
         Update: {
           service_id?: string
-          created_at?: string | null
           image_id?: string
           index?: number | null
+          created_at?: string | null
           show?: boolean | null
         }
       }
       services: {
         Row: {
-          id: string
-          created_at: string | null
+          type: number
+          image: string | null
           name: string
           description: string | null
           duration: number | null
           price: number | null
-          image: string | null
           category: string | null
-          type: number
+          id: string
+          created_at: string | null
         }
         Insert: {
-          id?: string
-          created_at?: string | null
+          type?: number
+          image?: string | null
           name: string
           description?: string | null
           duration?: number | null
           price?: number | null
-          image?: string | null
           category?: string | null
-          type?: number
-        }
-        Update: {
           id?: string
           created_at?: string | null
+        }
+        Update: {
+          type?: number
+          image?: string | null
           name?: string
           description?: string | null
           duration?: number | null
           price?: number | null
-          image?: string | null
           category?: string | null
-          type?: number
+          id?: string
+          created_at?: string | null
         }
       }
       special_days: {
         Row: {
-          id: string
           date: string | null
           start_hours: string
           end_hours: string
+          id: string
           open: boolean
         }
         Insert: {
-          id?: string
           date?: string | null
           start_hours: string
           end_hours: string
+          id?: string
           open?: boolean
         }
         Update: {
-          id?: string
           date?: string | null
           start_hours?: string
           end_hours?: string
+          id?: string
           open?: boolean
         }
       }
       testimonials: {
         Row: {
+          content: string
+          show: boolean
+          client: string
           id: string
           created_at: string | null
-          content: string
-          show: boolean
-          client: string
         }
         Insert: {
-          id?: string
-          created_at?: string | null
           content: string
           show: boolean
           client: string
-        }
-        Update: {
           id?: string
           created_at?: string | null
+        }
+        Update: {
           content?: string
           show?: boolean
           client?: string
+          id?: string
+          created_at?: string | null
         }
       }
       user_status: {
@@ -638,31 +641,31 @@ export interface Database {
       }
       voucher: {
         Row: {
-          id: string
-          created_at: string | null
           voucher_name: string | null
           value: number
           start_date: string
           end_date: string
           client_id: string
+          id: string
+          created_at: string | null
         }
         Insert: {
-          id?: string
-          created_at?: string | null
           voucher_name?: string | null
           value: number
           start_date: string
           end_date: string
           client_id: string
-        }
-        Update: {
           id?: string
           created_at?: string | null
+        }
+        Update: {
           voucher_name?: string | null
           value?: number
           start_date?: string
           end_date?: string
           client_id?: string
+          id?: string
+          created_at?: string | null
         }
       }
       working_hours: {

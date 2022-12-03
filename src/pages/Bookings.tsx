@@ -14,6 +14,7 @@ import DeletedServiceFromBasketContext from '../contexts/deletedServiceFromBaske
 import NewServiceToBasketContext from '../contexts/newServiceToBasketContext';
 import { ServicesContext } from '../contexts/servicesContext';
 import { useSessionContext } from '../contexts/sessionContext';
+import useCreateOrder from '../hooks/query/useCreateOrder';
 import useGetBasket from '../hooks/query/useGetBasket';
 
 import useGetServices from '../hooks/query/useGetServices';
@@ -36,13 +37,14 @@ const Bookings = () => {
     useState<PostgrestError | null>(null);
 
   const { fetchBasket } = useGetBasket();
+  const { orderInfo, createOrder, orderError } = useCreateOrder();
 
   useEffect(() => {
     if (session.user) {
       fetchBasket(setBasket, setBasketFetchError);
       fetchServices();
     }
-  }, [newService, session, deletedService]);
+  }, [newService, session, deletedService, orderInfo]);
 
   if (userNotLoggedIn) {
     return (
@@ -88,14 +90,20 @@ const Bookings = () => {
             </TextBoxContainer>
             <TextBoxContainer w='[80%]' lgW='[80%]'>
               <TableTitle title='Cosul meu' />
-              <Basket />
+              <Basket
+                orderError={orderError}
+                createOrder={createOrder}
+                orderInfo={orderInfo}
+              />
             </TextBoxContainer>
           </BasketContext.Provider>
-          <TextBoxContainer w='[80%]' lgW='[80%]'>
-            <TableTitle title='Multumesc' />
+          {orderInfo && (
+            <TextBoxContainer w='[80%]' lgW='[80%]'>
+              <TableTitle title='Multumesc' />
 
-            <ThankYou />
-          </TextBoxContainer>
+              <ThankYou />
+            </TextBoxContainer>
+          )}
         </DeletedServiceFromBasketContext.Provider>
       </NewServiceToBasketContext.Provider>
     </>

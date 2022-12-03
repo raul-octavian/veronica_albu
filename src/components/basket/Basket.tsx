@@ -1,6 +1,9 @@
+import { PostgrestError } from '@supabase/supabase-js';
 import { FC, useEffect, useState } from 'react';
 import { useBasketContext } from '../../contexts/basketContext';
 import { ComponentNames } from '../../types/constants/componentNames';
+import { Order } from '../../types/db/dbTypes';
+import { CreateOrder } from '../../types/order';
 import LargeButton from '../buttons/LargeButton';
 import FetchError from '../errors/FetchError';
 import CheckboxName from '../productTable/CheckboxName';
@@ -11,7 +14,13 @@ import ProductItem, { UseTypeValues } from '../productTable/ProductItem';
 import TableHeader from '../productTable/TableHeader';
 import TextBoxHeader from '../textBox/TextBoxHeader';
 
-const Basket: FC = () => {
+type BasketProps = {
+  orderInfo?: Order[];
+  createOrder: CreateOrder;
+  orderError?: PostgrestError | null;
+};
+
+const Basket: FC<BasketProps> = ({ orderInfo, createOrder, orderError }) => {
   const [totalDuration, setTotalDuration] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [priceDisclaimer, setPriceDisclaimer] = useState(false);
@@ -44,6 +53,12 @@ const Basket: FC = () => {
     setTotalPrice(getTotalPrice ?? 0);
     setTotalDuration(getTotalDuration ?? 0);
   }, [basket]);
+
+  const onClickHandler = () => {
+    basket &&
+      basket[0].basket_id &&
+      createOrder(basket[0].basket_id, totalPrice, totalDuration);
+  };
 
   return (
     <>
@@ -128,6 +143,7 @@ const Basket: FC = () => {
               value='Finalizeaza comanda'
               disabled={getDisclainers()}
               disableValue='accepta conditiile de mai sus'
+              onClickHandler={onClickHandler}
             />
           )}
         </div>

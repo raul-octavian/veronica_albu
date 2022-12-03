@@ -1,5 +1,5 @@
 import { PostgrestError } from '@supabase/supabase-js';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import supabase from '../../supabase';
 import { Service } from '../../types/db/dbTypes';
 

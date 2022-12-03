@@ -20,7 +20,7 @@ const useGetBasketId = () => {
       .eq('client_id', session?.user?.id);
 
     error && console.log(error.message);
-    return basket && basket[0].id;
+    return basket && basket[0]?.id;
   };
   return { useBasketId };
 };

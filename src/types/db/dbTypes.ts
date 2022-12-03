@@ -6,6 +6,7 @@ export type Views = Database['public']['Views'];
 export type Service = Tables['services']['Row'];
 export type Client = Tables['clients']['Row'];
 export type Basket = Tables['basket']['Row'];
+export type Order = Tables['orders']['Row'];
 export type BasketHasService = Tables['basket_has_services']['Row'];
 export type BasketInsertReturn = Tables['basket']['Insert'];
 export type BasketView = Views['basketview']['Row'];

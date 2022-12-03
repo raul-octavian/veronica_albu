@@ -6,6 +6,7 @@ type LargeButtonProps = {
   link?: string;
   disabled?: boolean;
   disableValue?: string;
+  onClickHandler?: () => void;
 };
 
 const LargeButton: FC<LargeButtonProps> = ({
@@ -13,6 +14,7 @@ const LargeButton: FC<LargeButtonProps> = ({
   link,
   disabled,
   disableValue,
+  onClickHandler,
 }) => {
   const navigate = useNavigate();
 
@@ -25,9 +27,7 @@ const LargeButton: FC<LargeButtonProps> = ({
         <button
           className={`disabled:bg-accent-soft disabled:text-primary-main disabled:hover:tracking-widest text-primary-main bg-accent-main focus:ring-4 focus:ring-accent-soft font-medium text-lg uppercase tracking-widest w-full py-6 focus:outline-none transition-all duration-300 hover:tracking-wide md:w-96`}
           type='button'
-          onClick={() => {
-            onClick();
-          }}
+          onClick={onClickHandler ?? onClick}
           disabled={disabled}
         >
           {disabled ? disableValue : value}
