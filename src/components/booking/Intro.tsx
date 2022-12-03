@@ -1,10 +1,12 @@
 import { FC } from 'react';
+import { useSessionContext } from '../../contexts/sessionContext';
 import TextBoxWithCtaAndImage from '../textBox/TextBoxWithCtaAndImage';
 const Intro: FC = () => {
+  const { session } = useSessionContext();
   return (
     <TextBoxWithCtaAndImage>
       <p className='text-lg text-center mb-2 tracking-wide'>
-        Bine ai venit Placeholder,
+        Bine ai venit {session.user.user_metadata?.first_name},
       </p>
       <p className='tracking-wider xl:w-[60%] m-auto mb-2'>
         Aici iti poti programa serviciile de infrumusetare, te rog sa alegi un

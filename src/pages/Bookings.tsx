@@ -101,7 +101,7 @@ const Bookings = () => {
             <TextBoxContainer w='[80%]' lgW='[80%]'>
               <TableTitle title='Multumesc' />
 
-              <ThankYou />
+              <ThankYou orderInfo={orderInfo} />
             </TextBoxContainer>
           )}
         </DeletedServiceFromBasketContext.Provider>

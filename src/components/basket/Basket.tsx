@@ -7,6 +7,7 @@ import { CreateOrder } from '../../types/order';
 import LargeButton from '../buttons/LargeButton';
 import FetchError from '../errors/FetchError';
 import CheckboxName from '../productTable/CheckboxName';
+import Disclaimer from '../productTable/Disclaimer';
 import PriceOrDurationBox, {
   TypeValues,
 } from '../productTable/PriceOrDurationBox';
@@ -102,7 +103,7 @@ const Basket: FC<BasketProps> = ({ orderInfo, createOrder, orderError }) => {
                 </div>
                 <div className=' border-t border-accent-main mt-8 py-4'>
                   <div>
-                    <CheckboxName
+                    <Disclaimer
                       name='am luat la  cunostiata ca durata totala este o estimare a timpului necesar fiecari proceduri si poate suferii modificari.'
                       id='Dis_time'
                       onMainChangeHandler={() =>
@@ -112,7 +113,7 @@ const Basket: FC<BasketProps> = ({ orderInfo, createOrder, orderError }) => {
                   </div>
 
                   <div>
-                    <CheckboxName
+                    <Disclaimer
                       name='am luat la  cunostiata ca pretul este pentru procedurile selectate si orice proceduri adaugate la fata locului pot influenta pretul final.'
                       id='Dis_price'
                       onMainChangeHandler={() =>
