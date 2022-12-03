@@ -3,7 +3,7 @@ import { FC } from 'react';
 import TextBoxHeader from '../textBox/TextBoxHeader';
 
 type FetchErrorProps = {
-  error: PostgrestError | null;
+  error?: PostgrestError | null;
 };
 
 const FetchError: FC<FetchErrorProps> = ({ error }) => {
