@@ -8,10 +8,7 @@ const TabsNavigationContainer: FC<TabsNavigationContainerProps> = ({
   children,
 }) => {
   return (
-    <ul
-      className='flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row'
-      role='tablist'
-    >
+    <ul className='flex mb-0 list-none flex-wrap p-4 flex-row' role='tablist'>
       {children}
     </ul>
   );

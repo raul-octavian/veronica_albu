@@ -1,5 +1,5 @@
 import { PostgrestError } from '@supabase/supabase-js';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import supabase from '../../supabase';
 import { OrderServices } from '../../types/db/dbTypes';
 
@@ -17,7 +17,9 @@ const useGetOrderServices = (id: string) => {
     basketview && setServices(basketview);
   };
 
-  getOrderServices();
+  useEffect(() => {
+    getOrderServices();
+  }, [id]);
 
   return { error, services };
 };

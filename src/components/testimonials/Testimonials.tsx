@@ -14,7 +14,7 @@ const Testimonials: FC = () => {
       <div className='block md:flex flex-wrap justify-center gap-10'>
         <TestimonialCard>
           <TextBoxContentWarper>
-            <div className='px-4'>
+            <div className='px-2'>
               <header className='sm:flex mb-4'>
                 <img
                   src={TestimonialImage}
@@ -42,7 +42,7 @@ const Testimonials: FC = () => {
         </TestimonialCard>
         <TestimonialCard>
           <TextBoxContentWarper>
-            <div className='px-4'>
+            <div className='px-2'>
               <header className='sm:flex mb-4'>
                 <img
                   src={TestimonialImage}
@@ -70,7 +70,7 @@ const Testimonials: FC = () => {
         </TestimonialCard>
         <TestimonialCard>
           <TextBoxContentWarper>
-            <div className='px-4'>
+            <div className='px-2'>
               <header className='sm:flex mb-4'>
                 <img
                   src={TestimonialImage}

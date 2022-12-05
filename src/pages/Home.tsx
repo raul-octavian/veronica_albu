@@ -122,12 +122,14 @@ const Home = () => {
         </p>
       </TextBoxWithCtaAndImage>
       <TextBoxWithCtaAndImage title='Produse cu care lucrez'>
-        <div className='h-32 flex gap-6 justify-center py-6 flex-wrap'>
+        <div className='min-h-32 flex gap-6 justify-center py-6 flex-wrap'>
           <img src={PhyLogoImage} alt='logo' className='h-full' />
           <img src={Cupio} alt='logo' className='h-full' />
         </div>
       </TextBoxWithCtaAndImage>
-      <Carousel />
+      <TextBoxWithCtaAndImage title='Lucrarile mele'>
+        <Carousel />
+      </TextBoxWithCtaAndImage>
     </>
   );
 };

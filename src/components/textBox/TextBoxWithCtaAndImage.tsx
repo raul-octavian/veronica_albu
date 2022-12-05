@@ -25,7 +25,7 @@ const TextBoxWithCtaAndImage: FC<TextBoxWithCtaAndImageProps> = ({
   lgW,
 }) => {
   return (
-    <TextBoxContainer w={w} lgW={lgW}>
+    <TextBoxContainer w={w} lgW={lgW} >
       <TextBoxContentWarper>
         <TextBoxHeader>
           <h3 className='text-xl'>{title}</h3>

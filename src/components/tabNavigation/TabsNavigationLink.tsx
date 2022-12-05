@@ -14,9 +14,9 @@ const TabsNavigationLink: FC<TabsNavigationLinkProps> = ({
   tabName,
 }) => {
   return (
-    <li className='-mb-px mr-2 last:mr-0 flex-auto text-center'>
+    <li className='-mb-px mr-0  flex-auto text-center'>
       <a
-        className={`block flex-1 focus:ring-4 focus:ring-accent-soft font-medium font-header rounded-lg text-lg uppercase tracking-widest px-6 py-3 focus:outline-none 
+        className={`block flex-1 focus:ring-4 focus:ring-accent-soft font-medium font-header  text-lg uppercase tracking-widest px-6 py-3 focus:outline-none 
                   ${
                     openTab === tabNr
                       ? 'text-primary bg-accent-main'

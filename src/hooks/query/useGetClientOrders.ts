@@ -15,7 +15,8 @@ const useGetClientOrders = () => {
       let { data: order, error } = await supabase
         .from('orders')
         .select(`*`)
-        .eq('client_id', session.user?.id);
+        .eq('client_id', session.user?.id)
+        .order('created_at', { ascending: false });
 
       error && setError(error);
 

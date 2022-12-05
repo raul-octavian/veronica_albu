@@ -5,6 +5,6 @@ type TextBoxContentWarperProps = {
 };
 
 const TextBoxContentWarper: FC<TextBoxContentWarperProps> = ({ children }) => {
-  return <div className=' pt-14 pb-10 px-4'>{children}</div>;
+  return <div className=' pt-14 pb-10 lg:px-4 px-2'>{children}</div>;
 };
 export default TextBoxContentWarper;

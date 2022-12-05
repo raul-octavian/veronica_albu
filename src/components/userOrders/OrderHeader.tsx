@@ -7,7 +7,9 @@ type OrderHeaderProps = {
 const OrderHeader: FC<OrderHeaderProps> = ({ children }) => {
   return (
     <div>
-      <div className='flex flex-row justify-between'>{children}</div>
+      <div className='flex flex-row justify-between flex-wrap-reverse'>
+        {children}
+      </div>
     </div>
   );
 };

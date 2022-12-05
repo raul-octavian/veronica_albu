@@ -8,7 +8,7 @@ const TabsContainer: FC<TabsContainerProps> = ({ children }) => {
   return (
     <>
       <div className='flex flex-wrap min-h-screen tracking-wider'>
-        <div className='w-full flex flex-col p-10'>{children}</div>
+        <div className='w-full flex flex-col py-10'>{children}</div>
       </div>
     </>
   );

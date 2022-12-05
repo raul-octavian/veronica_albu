@@ -54,16 +54,15 @@ const OrderContainer: FC<OrderContainerProps> = ({
     }
   }, [end]);
 
-
   return (
-    <div className='border border-accent-main p-10 my-4'>
+    <div className='border border-accent-main px-2 lg:px-10 my-4 py-5'>
       <OrderHeader>
         <OrderInfoItem label='Nr' value={id} />
         {printStatus() && <OrderState statusId={printStatus() ?? ''} />}
       </OrderHeader>
 
       <div>
-        <div className='flex flex-row justify-start flex-wrap gap-4'>
+        <div className='flex flex-row justify-start flex-wrap gap-1 lg:gap-4'>
           <OrderInfoItem label='data' value={date ?? 'nespecificat'} />
           <OrderInfoItem label='de la' value={startTime ?? 'nespecificat'} />
           <OrderInfoItem label='pana la' value={endTime ?? 'nespecificat'} />
@@ -72,7 +71,7 @@ const OrderContainer: FC<OrderContainerProps> = ({
       {isMoreOpen && <OrderServices id={basket} />}
 
       <TotalContainer>
-        <OrderInfoItem label='Total' value={duration ?? 0} currency='min' />
+        <OrderInfoItem label='timp' value={duration ?? 0} currency='min' />
         <OrderInfoItem label='Total' value={value ?? 0} currency='ron' />
       </TotalContainer>
       <ActionsContainer>
