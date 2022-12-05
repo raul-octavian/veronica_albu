@@ -18,13 +18,13 @@ const useGetBasket = () => {
     if (error) {
       setBasketFetchError(error);
       setBasket(null);
-      console.log(error);
+
     }
 
     if (data) {
       setBasket(data);
       setBasketFetchError(null);
-      console.log({ data });
+
     }
   };
 

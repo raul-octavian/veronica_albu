@@ -1,4 +1,6 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSessionContext } from '../../contexts/sessionContext';
 import useGetClientInfo from '../../hooks/query/useGetClientinfo';
 import FetchError from '../errors/FetchError';
 import TextBoxContainer from '../textBox/TextBoxContainer';
@@ -13,7 +15,15 @@ type ProfileProps = {
 
 const Profile: FC<ProfileProps> = () => {
   const { error, client } = useGetClientInfo();
+  const navigate = useNavigate();
 
+  const { session } = useSessionContext();
+
+   useEffect(() => {
+     if (!session.user) {
+       navigate('/login');
+     }
+   }, [session]);
   if (error) {
     return <FetchError error={error}></FetchError>;
   }
@@ -23,7 +33,7 @@ const Profile: FC<ProfileProps> = () => {
       <TextBoxContainer>
         <TextBoxContentWarper>
           <TextBoxHeader>
-            <h2 className='text-2xl text-accent-main'>Profilul meu</h2>
+            <h2 className='text-2xl text-accent-main '>Profilul meu</h2>
           </TextBoxHeader>
           <ProfileInfoContainer>
             <ProfileInfoItem

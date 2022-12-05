@@ -10,3 +10,9 @@ export type Order = Tables['orders']['Row'];
 export type BasketHasService = Tables['basket_has_services']['Row'];
 export type BasketInsertReturn = Tables['basket']['Insert'];
 export type BasketView = Views['basketview']['Row'];
+export type OrderStatus = Tables['order_status']['Row'];
+
+export type OrderServices = Pick<
+  BasketView,
+  'name' | 'duration' | 'price' | 'service_id'
+>;

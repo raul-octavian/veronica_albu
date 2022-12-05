@@ -27,7 +27,7 @@ const useCreateOrder = () => {
 
       if (error) {
         setOrderError(error);
-        console.log(error);
+
       }
       if (data) {
         let { data: basket_status } = await supabase
@@ -49,8 +49,6 @@ const useCreateOrder = () => {
         error && console.log(error);
 
         if (basketData) {
-          console.log(basketData);
-          console.log(data);
           setOrderInfo(data);
         }
       }

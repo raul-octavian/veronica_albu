@@ -49,7 +49,6 @@ const useAddServiceToBasket = () => {
       error && console.log(error);
 
       if (data) {
-        console.log('new data', data);
         setNewService(data[0]);
       }
     };

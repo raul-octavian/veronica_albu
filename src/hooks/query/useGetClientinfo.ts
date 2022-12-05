@@ -9,20 +9,23 @@ const useGetClientInfo = () => {
   const [error, setError] = useState<PostgrestError | null>();
   const [client, setClient] = useState<Partial<Client>>();
   const getClientInfo = async () => {
-    let { data: client, error } = await supabase
-      .from('clients')
-      .select('first_name, last_name, email, phone')
-      .eq('id', session?.user.id)
-      .single();
+    if (session) {
+      let { data: client, error } = await supabase
+        .from('clients')
+        .select('first_name, last_name, email, phone')
+        .eq('id', session?.user.id)
+        .single();
 
-    error && console.log(error);
-    error && setError(error);
+      error && setError(error);
 
-    client && setClient(client);
+      client && setClient(client);
+    }
   };
 
   useEffect(() => {
-    getClientInfo();
+    if (session.user) {
+      getClientInfo();
+    }
   }, [session]);
 
   return { error, client };

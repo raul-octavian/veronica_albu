@@ -1,13 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Profile from '../components/profile/Profile';
 import TabsContainer from '../components/tabNavigation/TabsContainer';
 import TabsContentContainer from '../components/tabNavigation/TabsContentContainer';
 import TabsContentItem from '../components/tabNavigation/TabsContentItem';
 import TabsNavigationContainer from '../components/tabNavigation/TabsNavigationContainer';
 import TabsNavigationLink from '../components/tabNavigation/TabsNavigationLink';
+import Orders from '../components/userOrders/Orders';
+import { useSessionContext } from '../contexts/sessionContext';
 
 const MyAccount = () => {
   const [openTab, setOpenTab] = useState(1);
+
+  const navigate = useNavigate();
+
+  const { session } = useSessionContext();
+
+  useEffect(() => {
+    if (!session.user) {
+      navigate('/login');
+    }
+  }, [session]);
+
   return (
     <>
       <TabsContainer>
@@ -31,15 +45,7 @@ const MyAccount = () => {
             <Profile />
           </TabsContentItem>
           <TabsContentItem openTab={openTab} tabNr={2}>
-            <p>
-              Completely synergize resource taxing relationships via premier
-              niche markets. Professionally cultivate one-to-one customer
-              service with robust ideas.
-              <br />
-              <br />
-              Dynamically innovate resource-leveling customer service for state
-              of the art customer service.
-            </p>
+            <Orders />
           </TabsContentItem>
         </TabsContentContainer>
       </TabsContainer>

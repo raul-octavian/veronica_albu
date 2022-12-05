@@ -13,7 +13,6 @@ const useGetServices = () => {
     if (error) {
       setFetchError(error);
       setServices(null);
-      console.log(error);
     }
 
     if (data) {
