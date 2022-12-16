@@ -1,4 +1,4 @@
-export const validateEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+export const validateEmail = /^\w+([-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 export const onlyLetter = /^[a-z A-Z]+$/;
 
@@ -14,4 +14,4 @@ export const validateHasCapitalLetter = /(?=.*?[A-Z]).*/;
 
 export const validateHasLowerCaseLetter = /(?=.*?[a-z]).*/;
 
-export const validateHasSpecialCharacters = /(?=.*[!@#\$%\^&\*])/;
+export const validateHasSpecialCharacters = /(?=.*[!@#$%^&*])/;

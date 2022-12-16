@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PostgrestError } from 'react-supabase';
+import { PostgrestError } from '@supabase/supabase-js';
 import supabase from '../../supabase';
 import { OrderStatus } from '../../types/db/dbTypes';
 
