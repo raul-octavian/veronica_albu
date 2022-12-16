@@ -6,7 +6,6 @@ import { Order } from '../../types/db/dbTypes';
 import { CreateOrder } from '../../types/order';
 import LargeButton from '../buttons/LargeButton';
 import FetchError from '../errors/FetchError';
-import CheckboxName from '../productTable/CheckboxName';
 import Disclaimer from '../productTable/Disclaimer';
 import PriceOrDurationBox, {
   TypeValues,

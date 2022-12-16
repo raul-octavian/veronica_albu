@@ -12,6 +12,7 @@ const OrderList: FC<OrderListProps> = ({ orders }) => {
 
   useEffect(() => {
     getOrderStatus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

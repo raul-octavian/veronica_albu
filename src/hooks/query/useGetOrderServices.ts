@@ -19,6 +19,7 @@ const useGetOrderServices = (id: string) => {
 
   useEffect(() => {
     getOrderServices();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return { error, services };

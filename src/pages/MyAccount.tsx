@@ -20,7 +20,7 @@ const MyAccount = () => {
     if (!session.user) {
       navigate('/login');
     }
-  }, [session]);
+  }, [session, navigate]);
 
   return (
     <>

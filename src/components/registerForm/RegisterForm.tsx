@@ -39,7 +39,7 @@ const RegisterForm: FC = () => {
   const basePassword = watch('password');
 
   const signUpWithPassword = async (input: Inputs) => {
-    const { data, error } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email: input.email,
       password: input.password,
       options: {

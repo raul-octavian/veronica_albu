@@ -19,11 +19,11 @@ const Profile: FC<ProfileProps> = () => {
 
   const { session } = useSessionContext();
 
-   useEffect(() => {
-     if (!session.user) {
-       navigate('/login');
-     }
-   }, [session]);
+  useEffect(() => {
+    if (!session.user) {
+      navigate('/login');
+    }
+  }, [navigate, session]);
   if (error) {
     return <FetchError error={error}></FetchError>;
   }

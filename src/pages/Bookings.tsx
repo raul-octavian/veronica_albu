@@ -44,7 +44,14 @@ const Bookings = () => {
       fetchBasket(setBasket, setBasketFetchError);
       fetchServices();
     }
-  }, [newService, session, deletedService, orderInfo]);
+  }, [
+    newService,
+    session,
+    deletedService,
+    orderInfo,
+    fetchBasket,
+    fetchServices,
+  ]);
 
   if (userNotLoggedIn) {
     return (
