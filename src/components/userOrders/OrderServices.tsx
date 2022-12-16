@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import useGetOrderServices from '../../hooks/query/useGetOrderServices';
 import FetchError from '../errors/FetchError';
-import TableHeader from '../productTable/TableHeader';
+import TableHeader from '../booking/productTable/TableHeader';
 import Service from './Service';
 
 type OrderServiceProps = {

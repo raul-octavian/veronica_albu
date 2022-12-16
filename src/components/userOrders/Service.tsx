@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { OrderServices } from '../../types/db/dbTypes';
 import PriceOrDurationBox, {
   TypeValues,
-} from '../productTable/PriceOrDurationBox';
-import { UseTypeValues } from '../productTable/ProductItem';
+} from '../booking/productTable/PriceOrDurationBox';
+import { UseTypeValues } from '../booking/productTable/ProductItem';
 
 type ServiceProps = {
   service: OrderServices;

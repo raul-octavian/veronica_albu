@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import TextBoxHeader from '../textBox/TextBoxHeader';
+import TextBoxHeader from '../../textBox/TextBoxHeader';
 const TableHeader: FC = () => {
   return (
     <div className='grid grid-flow-row-dense grid-cols-12 bg-accent-main text-primary-main py-4'>

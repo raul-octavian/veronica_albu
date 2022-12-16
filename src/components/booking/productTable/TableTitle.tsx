@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import TextBoxHeader from '../textBox/TextBoxHeader';
+import TextBoxHeader from '../../textBox/TextBoxHeader';
 
 type TableTitleProps = {
   title: string;

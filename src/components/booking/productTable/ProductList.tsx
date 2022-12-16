@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { useServiceContext } from '../../contexts/servicesContext';
-import { Service } from '../../types/db/dbTypes';
+import { useServiceContext } from '../../../contexts/servicesContext';
+import { Service } from '../../../types/db/dbTypes';
 import ProductElement from './ProductElement';
 
 const ProductList: FC = () => {

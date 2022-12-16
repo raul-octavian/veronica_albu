@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
-import { ComponentNames } from '../../types/constants/componentNames';
-import { Service } from '../../types/db/dbTypes';
+import { ComponentNames } from '../../../types/constants/componentNames';
+import { Service } from '../../../types/db/dbTypes';
 import ProductItem, { UseTypeValues } from './ProductItem';
 // import SecondaryProducts from './SecodaryProducts';
 

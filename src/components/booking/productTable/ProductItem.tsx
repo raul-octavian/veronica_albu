@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { Service } from '../../types/db/dbTypes';
+import { Service } from '../../../types/db/dbTypes';
 import CheckboxName from './CheckboxName';
 import PriceOrDurationBox, { TypeValues } from './PriceOrDurationBox';
-import { ComponentNames } from '../../types/constants/componentNames';
+import { ComponentNames } from '../../../types/constants/componentNames';
 
 export enum UseTypeValues {
   MAIN = 'main',

@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { useBasketContext } from '../../contexts/basketContext';
-import useAddServiceToBasket from '../../hooks/query/useAddServiceToBasket';
-import useDeleteServiceFromBasket from '../../hooks/query/useDeleteServiceFromBasket';
-import useGetBasketId from '../../hooks/query/useGetBasketId';
+import { useBasketContext } from '../../../contexts/basketContext';
+import useAddServiceToBasket from '../../../hooks/query/useAddServiceToBasket';
+import useDeleteServiceFromBasket from '../../../hooks/query/useDeleteServiceFromBasket';
+import useGetBasketId from '../../../hooks/query/useGetBasketId';
 
-import { ComponentNames } from '../../types/constants/componentNames';
-import { BasketView } from '../../types/db/dbTypes';
+import { ComponentNames } from '../../../types/constants/componentNames';
+import { BasketView } from '../../../types/db/dbTypes';
 
 type CheckboxNameProps = {
   name: string;

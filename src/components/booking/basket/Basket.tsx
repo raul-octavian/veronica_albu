@@ -1,18 +1,18 @@
 import { PostgrestError } from '@supabase/supabase-js';
 import { FC, useEffect, useState } from 'react';
-import { useBasketContext } from '../../contexts/basketContext';
-import { ComponentNames } from '../../types/constants/componentNames';
-import { Order } from '../../types/db/dbTypes';
-import { CreateOrder } from '../../types/order';
-import LargeButton from '../buttons/LargeButton';
-import FetchError from '../errors/FetchError';
+import { useBasketContext } from '../../../contexts/basketContext';
+import { ComponentNames } from '../../../types/constants/componentNames';
+import { Order } from '../../../types/db/dbTypes';
+import { CreateOrder } from '../../../types/order';
+import LargeButton from '../../buttons/LargeButton';
+import FetchError from '../../errors/FetchError';
 import Disclaimer from '../productTable/Disclaimer';
 import PriceOrDurationBox, {
   TypeValues,
 } from '../productTable/PriceOrDurationBox';
 import ProductItem, { UseTypeValues } from '../productTable/ProductItem';
 import TableHeader from '../productTable/TableHeader';
-import TextBoxHeader from '../textBox/TextBoxHeader';
+import TextBoxHeader from '../../textBox/TextBoxHeader';
 
 type BasketProps = {
   orderInfo?: Order[];

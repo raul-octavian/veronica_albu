@@ -1,11 +1,11 @@
 import { PostgrestError } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
-import Basket from '../components/basket/Basket';
+import Basket from '../components/booking/basket/Basket';
 import Intro from '../components/booking/Intro';
 import FetchError from '../components/errors/FetchError';
 import LoginForm from '../components/login/LoginForm';
-import ProductTable from '../components/productTable/ProductTable';
-import TableTitle from '../components/productTable/TableTitle';
+import ProductTable from '../components/booking/productTable/ProductTable';
+import TableTitle from '../components/booking/productTable/TableTitle';
 import TextBoxContainer from '../components/textBox/TextBoxContainer';
 import TextBoxHeader from '../components/textBox/TextBoxHeader';
 import ThankYou from '../components/thankYou/ThankYou';
