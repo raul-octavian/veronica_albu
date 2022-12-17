@@ -44,14 +44,8 @@ const Bookings = () => {
       fetchBasket(setBasket, setBasketFetchError);
       fetchServices();
     }
-  }, [
-    newService,
-    session,
-    deletedService,
-    orderInfo,
-    fetchBasket,
-    fetchServices,
-  ]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [newService, session, deletedService, orderInfo]);
 
   if (userNotLoggedIn) {
     return (
