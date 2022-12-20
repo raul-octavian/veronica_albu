@@ -36,15 +36,15 @@ const Bookings = () => {
   const [basketFetchError, setBasketFetchError] =
     useState<PostgrestError | null>(null);
 
-  const { fetchBasket } = useGetBasket();
+  const { getBasket } = useGetBasket();
   const { orderInfo, createOrder, orderError } = useCreateOrder();
 
   useEffect(() => {
     if (session.user) {
-      fetchBasket(setBasket, setBasketFetchError);
+      getBasket(setBasket, setBasketFetchError);
       fetchServices();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newService, session, deletedService, orderInfo]);
 
   if (userNotLoggedIn) {

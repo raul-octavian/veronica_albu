@@ -6,7 +6,7 @@ import { SetBasket, SetError } from '../../types/setTypes';
 const useGetBasket = () => {
   const { session } = useSessionContext();
 
-  const fetchBasket = async (
+  const getBasket = async (
     setBasket: SetBasket,
     setBasketFetchError: SetError
   ) => {
@@ -18,17 +18,15 @@ const useGetBasket = () => {
     if (error) {
       setBasketFetchError(error);
       setBasket(null);
-
     }
 
     if (data) {
       setBasket(data);
       setBasketFetchError(null);
-
     }
   };
 
-  return { fetchBasket };
+  return { getBasket };
 };
 
 export default useGetBasket;
