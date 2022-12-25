@@ -1,7 +1,4 @@
 import { FC } from "react";
-
-import SimpleLogo from "../../assets/logo_simplu.svg";
-
 import TextBoxContainer from "../textBox/TextBoxContainer";
 import NavigationList from "../navigation/NavigationList";
 import TextBoxHeader from "../textBox/TextBoxHeader";
@@ -9,6 +6,7 @@ import Address from "./Address";
 import SocialContacts from "./SocialContacts";
 import ContactForm from "./ContactForm";
 import WorkingHours from "./WorkingHours";
+import SimpleLogo from "../icons/SimpleLogo";
 
 const Footer: FC = () => {
   return (
@@ -18,7 +16,7 @@ const Footer: FC = () => {
           <div className="px-4 pt-14 flex-1 min-w-fit">
             <div className="flex pb-8 flex-wrap">
               <div>
-                <img src={SimpleLogo} alt="logo" />
+                <SimpleLogo />
               </div>
               <Address />
             </div>
