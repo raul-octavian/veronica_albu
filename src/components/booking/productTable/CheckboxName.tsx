@@ -1,11 +1,11 @@
-import { FC } from 'react';
-import { useBasketContext } from '../../../contexts/basketContext';
-import useAddServiceToBasket from '../../../hooks/query/useAddServiceToBasket';
-import useDeleteServiceFromBasket from '../../../hooks/query/useDeleteServiceFromBasket';
-import useGetBasketId from '../../../hooks/query/useGetBasketId';
+import { FC } from "react";
+import { useBasketContext } from "../../../contexts/basketContext";
+import useAddServiceToBasket from "../../../hooks/query/useAddServiceToBasket";
+import useDeleteServiceFromBasket from "../../../hooks/query/useDeleteServiceFromBasket";
+import useGetBasketId from "../../../hooks/query/useGetBasketId";
 
-import { ComponentNames } from '../../../types/constants/componentNames';
-import { BasketView } from '../../../types/db/dbTypes';
+import { ComponentNames } from "../../../types/constants/componentNames";
+import { BasketView } from "../../../types/db/dbTypes";
 
 type CheckboxNameProps = {
   name: string;
@@ -31,8 +31,8 @@ const CheckboxName: FC<CheckboxNameProps> = ({
     const basketId = await useBasketId();
     if (!checked) {
       basketId
-        ? addServiceToBasket(basketId ?? '', id)
-        : addServiceToBasket('', id);
+        ? addServiceToBasket(basketId ?? "", id)
+        : addServiceToBasket(id);
     } else {
       location === ComponentNames.BASKET &&
         basket?.length &&
@@ -47,31 +47,31 @@ const CheckboxName: FC<CheckboxNameProps> = ({
 
   return (
     <>
-      <div className='flex justify-start align-middle gap-2'>
+      <div className="flex justify-start align-middle gap-2">
         <input
-          type='checkbox'
+          type="checkbox"
           name={id}
           id={id}
-          className='accent-accent-main'
+          className="accent-accent-main"
           onChange={() => onMainChangeHandler()}
-          defaultChecked={isProductInBasket(basket, id)}
+          checked={isProductInBasket(basket, id)}
           onClick={useOnClickHandler}
-          data-test='checkbox'
+          data-test="checkbox"
           disabled={
             location === ComponentNames.PRODUCT_LIST &&
             isProductInBasket(basket, id)
           }
         />
-        <label htmlFor={id} className='text-left tracking-wider font-body'>
+        <label htmlFor={id} className="text-left tracking-wider font-body">
           {name}
         </label>
       </div>
 
-      {error && <p className='text-sm text-error'>{error}</p>}
-      {location === ComponentNames.PRODUCT_LIST &&
+      {error && <p className="text-sm text-error">{error}</p>}
+      {/* {location === ComponentNames.PRODUCT_LIST &&
         isProductInBasket(basket, id) && (
-          <p className='text-sm text-accent-soft'> Produsul este deja in cos</p>
-        )}
+          <p className="text-sm text-accent-soft"> Produsul este deja in cos</p>
+        )} */}
     </>
   );
 };

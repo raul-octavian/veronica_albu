@@ -1,9 +1,9 @@
-import { PostgrestError } from '@supabase/supabase-js';
-import { useState } from 'react';
-import { useSessionContext } from '../../contexts/sessionContext';
-import supabase from '../../supabase';
-import { BasketStatusValues } from '../../types/db/dbEnums';
-import { Order } from '../../types/db/dbTypes';
+import { PostgrestError } from "@supabase/supabase-js";
+import { useState } from "react";
+import { useSessionContext } from "../../contexts/sessionContext";
+import supabase from "../../supabase";
+import { BasketStatusValues } from "../../types/db/dbEnums";
+import { Order } from "../../types/db/dbTypes";
 
 const useCreateOrder = () => {
   const [orderError, setOrderError] = useState<PostgrestError | null>(null);
@@ -16,7 +16,7 @@ const useCreateOrder = () => {
   ) => {
     if (basketId) {
       const { data, error } = await supabase
-        .from('orders')
+        .from("orders")
         .insert({
           basket: basketId,
           client_id: session.user.id,
@@ -27,12 +27,12 @@ const useCreateOrder = () => {
 
       if (error) {
         setOrderError(error);
-
       }
+
       if (data) {
         let { data: basket_status } = await supabase
-          .from('basket_status')
-          .select('*');
+          .from("basket_status")
+          .select("*");
 
         const basketClosed = () =>
           basket_status &&
@@ -41,9 +41,9 @@ const useCreateOrder = () => {
           );
 
         const { data: basketData, error } = await supabase
-          .from('basket')
+          .from("basket")
           .update({ status: basketClosed()?.id })
-          .eq('id', basketId)
+          .eq("id", basketId)
           .select();
 
         error && console.log(error);
@@ -55,6 +55,6 @@ const useCreateOrder = () => {
     }
   };
 
-  return { orderError, createOrder, orderInfo };
+  return { orderError, createOrder, orderInfo, setOrderInfo };
 };
 export default useCreateOrder;

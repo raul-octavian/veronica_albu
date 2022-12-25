@@ -56,9 +56,6 @@ const ProductItem: FC<ProductItemProps> = ({
         value={price ?? 0}
         use={use}
       />
-      {/* {use === UseTypeValues.MAIN && mainChecked && (
-        <p className='col-start-2 col-span-10 text-xs'>extra:</p>
-      )} */}
     </div>
   );
 };

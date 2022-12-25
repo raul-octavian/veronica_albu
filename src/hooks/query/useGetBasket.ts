@@ -15,6 +15,7 @@ const useGetBasket = () => {
       .select(`*`)
       .eq('client_id', session?.user?.id)
       .ilike('basket_status', BasketStatusValues.OPEN);
+    
     if (error) {
       setBasketFetchError(error);
       setBasket(null);

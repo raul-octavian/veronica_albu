@@ -1,8 +1,7 @@
-import { FC, useState } from 'react';
-import { ComponentNames } from '../../../types/constants/componentNames';
-import { Service } from '../../../types/db/dbTypes';
-import ProductItem, { UseTypeValues } from './ProductItem';
-// import SecondaryProducts from './SecodaryProducts';
+import { FC, useState } from "react";
+import { ComponentNames } from "../../../types/constants/componentNames";
+import { Service } from "../../../types/db/dbTypes";
+import ProductItem, { UseTypeValues } from "./ProductItem";
 
 type ProductServiceProps = {
   service: Service;
@@ -18,7 +17,7 @@ const ProductElement: FC<ProductServiceProps> = ({ service }) => {
   const { name, duration, price, id, type } = service;
 
   return (
-    <div className='p-4 border border-accent-main my-2 '>
+    <div className="p-4 border border-accent-main my-2 ">
       <ProductItem
         name={name}
         duration={duration}
@@ -30,7 +29,6 @@ const ProductElement: FC<ProductServiceProps> = ({ service }) => {
         checked={mainChecked}
         location={ComponentNames.PRODUCT_LIST}
       />
-      {/* {mainChecked && <SecondaryProducts />} */}
     </div>
   );
 };
