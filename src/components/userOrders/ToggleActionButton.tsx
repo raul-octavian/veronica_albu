@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC } from "react";
 
 type ToggleActionButtonProps = {
   value: string;
@@ -11,7 +11,7 @@ const ToggleActionButton: FC<ToggleActionButtonProps> = ({
 }) => {
   return (
     <p
-      className='text-accent-main cursor-pointer underline underline-offset-3 py-2 px-6 tracking-widest focus:ring-4 focus:ring-accent-soft'
+      className="text-accent-main cursor-pointer underline underline-offset-3 py-2 px-6 tracking-widest focus:ring-4 focus:ring-accent-soft"
       onClick={onClickHandler}
     >
       {value}

@@ -1,2 +1,1 @@
-export const requiredRes = () => 'Campul este obligatoriu';
- 
+export const requiredRes = () => "Campul este obligatoriu";

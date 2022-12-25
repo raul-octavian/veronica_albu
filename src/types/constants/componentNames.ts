@@ -1,4 +1,4 @@
 export enum ComponentNames {
-  PRODUCT_LIST = 'product-list',
-  BASKET = 'basket',
+  PRODUCT_LIST = "product-list",
+  BASKET = "basket",
 }

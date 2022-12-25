@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Profile from '../components/profile/Profile';
-import TabsContainer from '../components/tabNavigation/TabsContainer';
-import TabsContentContainer from '../components/tabNavigation/TabsContentContainer';
-import TabsContentItem from '../components/tabNavigation/TabsContentItem';
-import TabsNavigationContainer from '../components/tabNavigation/TabsNavigationContainer';
-import TabsNavigationLink from '../components/tabNavigation/TabsNavigationLink';
-import Orders from '../components/userOrders/Orders';
-import { useSessionContext } from '../contexts/sessionContext';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Profile from "../components/profile/Profile";
+import TabsContainer from "../components/tabNavigation/TabsContainer";
+import TabsContentContainer from "../components/tabNavigation/TabsContentContainer";
+import TabsContentItem from "../components/tabNavigation/TabsContentItem";
+import TabsNavigationContainer from "../components/tabNavigation/TabsNavigationContainer";
+import TabsNavigationLink from "../components/tabNavigation/TabsNavigationLink";
+import Orders from "../components/userOrders/Orders";
+import { useSessionContext } from "../contexts/sessionContext";
 
 const MyAccount = () => {
   const [openTab, setOpenTab] = useState(1);
@@ -18,7 +18,7 @@ const MyAccount = () => {
 
   useEffect(() => {
     if (!session.user) {
-      navigate('/login');
+      navigate("/login");
     }
   }, [session, navigate]);
 
@@ -29,13 +29,13 @@ const MyAccount = () => {
           <TabsNavigationLink
             openTab={openTab}
             setOpenTab={setOpenTab}
-            tabName='Profil'
+            tabName="Profil"
             tabNr={1}
           ></TabsNavigationLink>
           <TabsNavigationLink
             openTab={openTab}
             setOpenTab={setOpenTab}
-            tabName='Programarile mele'
+            tabName="Programarile mele"
             tabNr={2}
           ></TabsNavigationLink>
         </TabsNavigationContainer>

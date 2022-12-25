@@ -1,11 +1,11 @@
-import { FC } from 'react';
-import { UseTypeValues } from './ProductItem';
+import { FC } from "react";
+import { UseTypeValues } from "./ProductItem";
 
 export enum TypeValues {
-  PRICE = 'price',
-  DURATION = 'duration',
-  TOTAL_DURATION = 'total_duration',
-  TOTAL_PRICE = 'total_price',
+  PRICE = "price",
+  DURATION = "duration",
+  TOTAL_DURATION = "total_duration",
+  TOTAL_PRICE = "total_price",
 }
 
 type PriceOrDurationBoxProps = {
@@ -20,15 +20,15 @@ const PriceOrDurationBox: FC<PriceOrDurationBoxProps> = ({
   use,
 }) => {
   return (
-    <div className='col-span-3 flex justify-center items-center'>
+    <div className="col-span-3 flex justify-center items-center">
       <p
         className={
           use === UseTypeValues.MAIN
-            ? 'text-base text-center'
-            : 'text-sm text-center'
+            ? "text-base text-center"
+            : "text-sm text-center"
         }
       >
-        <span className='text-accent-main'>{value}</span>
+        <span className="text-accent-main">{value}</span>
         {type === TypeValues.PRICE && <span> ron</span>}
       </p>
     </div>

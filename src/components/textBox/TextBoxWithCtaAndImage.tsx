@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import LargeButton from '../buttons/LargeButton';
-import TextBoxContainer from './TextBoxContainer';
-import TextBoxContent from './TextBoxContent';
-import TextBoxContentWarper from './TextBoxContentWarper';
-import TextBoxHeader from './TextBoxHeader';
+import { FC } from "react";
+import LargeButton from "../buttons/LargeButton";
+import TextBoxContainer from "./TextBoxContainer";
+import TextBoxContent from "./TextBoxContent";
+import TextBoxContentWarper from "./TextBoxContentWarper";
+import TextBoxHeader from "./TextBoxHeader";
 
 type TextBoxWithCtaAndImageProps = {
   image?: string;
@@ -25,10 +25,10 @@ const TextBoxWithCtaAndImage: FC<TextBoxWithCtaAndImageProps> = ({
   lgW,
 }) => {
   return (
-    <TextBoxContainer w={w} lgW={lgW} >
+    <TextBoxContainer w={w} lgW={lgW}>
       <TextBoxContentWarper>
         <TextBoxHeader>
-          <h3 className='text-xl'>{title}</h3>
+          <h3 className="text-xl">{title}</h3>
         </TextBoxHeader>
 
         <TextBoxContent image={image}>{children}</TextBoxContent>

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC } from "react";
 
 type TextBoxHeaderProps = {
   children: JSX.Element | JSX.Element[];
@@ -6,8 +6,8 @@ type TextBoxHeaderProps = {
 
 const TextBoxHeader: FC<TextBoxHeaderProps> = ({ children }) => {
   return (
-    <div className='text-center text-2xl tracking-wider capitalize font-heading'>
-      {' '}
+    <div className="text-center text-2xl tracking-wider capitalize font-heading">
+      {" "}
       {children}
     </div>
   );

@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import { useServiceContext } from '../../../contexts/servicesContext';
-import { Service } from '../../../types/db/dbTypes';
-import ProductElement from './ProductElement';
+import { FC } from "react";
+import { useServiceContext } from "../../../contexts/servicesContext";
+import { Service } from "../../../types/db/dbTypes";
+import ProductElement from "./ProductElement";
 
 const ProductList: FC = () => {
   const services: Service[] | null = useServiceContext();

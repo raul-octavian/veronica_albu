@@ -1,13 +1,13 @@
-import { AuthError, PostgrestError } from '@supabase/supabase-js';
-import { FC, useState } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { AuthError, PostgrestError } from "@supabase/supabase-js";
+import { FC, useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 
-import supabase from '../../supabase';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Button from '../../components/navigation/Button';
-import { useSessionContext } from '../../contexts/sessionContext';
-import { validateEmail } from '../../utils/regex';
-import { requiredRes } from '../../utils/ValidationResponces';
+import supabase from "../../supabase";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Button from "../../components/navigation/Button";
+import { useSessionContext } from "../../contexts/sessionContext";
+import { validateEmail } from "../../utils/regex";
+import { requiredRes } from "../../utils/ValidationResponces";
 
 type Inputs = {
   email: string;
@@ -35,7 +35,7 @@ const LoginForm: FC = () => {
     });
 
     error && setError(() => error);
-    !error && location.pathname === '/login' && navigate('/');
+    !error && location.pathname === "/login" && navigate("/");
 
     data?.session && setSession(data?.session);
   };
@@ -43,40 +43,40 @@ const LoginForm: FC = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className='flex flex-col gap-4 max-w-[280px] m-auto'
+      className="flex flex-col gap-4 max-w-[280px] m-auto"
     >
       <div>
-        <label htmlFor='email' className='block'>
+        <label htmlFor="email" className="block">
           Email
         </label>
         <input
-          {...register('email', {
+          {...register("email", {
             required: requiredRes(),
             pattern: {
               value: validateEmail,
-              message: 'introdu a adresa de email valida',
+              message: "introdu a adresa de email valida",
             },
           })}
           className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
             errors.email && `border border-error focus:ring-2 focus:ring-error`
           }
                 `}
-          type='email'
-          id='email'
-          placeholder='ex: email@email.com'
-          autoComplete='email'
+          type="email"
+          id="email"
+          placeholder="ex: email@email.com"
+          autoComplete="email"
           autoFocus
         />
         {errors.email && (
-          <span className='text-error font-body text-xs m-0'>
+          <span className="text-error font-body text-xs m-0">
             {errors.email?.message}
           </span>
         )}
       </div>
       <div>
-        <label htmlFor='password'>Parola</label>
+        <label htmlFor="password">Parola</label>
         <input
-          {...register('password', {
+          {...register("password", {
             required: requiredRes(),
           })}
           className={`p-2 text-primary-main bg-secondary-main placeholder:text-accent-soft border border-accent-main focus:ring-4 focus:ring-accent-soft focus:outline-none w-full text-xl ${
@@ -84,35 +84,35 @@ const LoginForm: FC = () => {
             `border border-error focus:ring-2 focus:ring-error`
           }
                 `}
-          type='password'
-          placeholder='************'
-          autoComplete='current-password'
+          type="password"
+          placeholder="************"
+          autoComplete="current-password"
         />
         {errors.password && (
-          <span className='text-error font-body text-xs m-0'>
+          <span className="text-error font-body text-xs m-0">
             {errors.password?.message}
           </span>
         )}
       </div>
-      <div className='flex justify-center flex-col items-center '>
+      <div className="flex justify-center flex-col items-center ">
         <Link
-          to='/register'
-          className='text-accent-main hover:underline tracking-wider'
+          to="/register"
+          className="text-accent-main hover:underline tracking-wider"
         >
-          {' '}
+          {" "}
           Creaza cont
         </Link>
-        <Button type='submit' value='Logheaza-te'></Button>
+        <Button type="submit" value="Logheaza-te"></Button>
         <Link
-          to='/register'
-          className='text-primary-main hover:underline tracking-wider'
+          to="/register"
+          className="text-primary-main hover:underline tracking-wider"
         >
-          {' '}
+          {" "}
           Ai uitat parola?
         </Link>
       </div>
-      {error && error.message === 'Invalid login credentials' && (
-        <p className='text-error font-body text-sm m-0 text-center'>
+      {error && error.message === "Invalid login credentials" && (
+        <p className="text-error font-body text-sm m-0 text-center">
           Emailul sau parola nu sunt corecte
         </p>
       )}

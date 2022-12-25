@@ -1,6 +1,6 @@
-import { createContext, useContext } from 'react';
-import { BasketHasService } from '../types/db/dbTypes';
-import { SetNewService } from '../types/setTypes';
+import { createContext, useContext } from "react";
+import { BasketHasService } from "../types/db/dbTypes";
+import { SetNewService } from "../types/setTypes";
 
 type DeletedServiceFromBasketContextProps = {
   deletedService: BasketHasService;

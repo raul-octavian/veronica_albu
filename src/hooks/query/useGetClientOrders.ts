@@ -1,8 +1,8 @@
-import { PostgrestError } from '@supabase/supabase-js';
-import { useEffect, useState } from 'react';
-import { useSessionContext } from '../../contexts/sessionContext';
-import supabase from '../../supabase';
-import { Order } from '../../types/db/dbTypes';
+import { PostgrestError } from "@supabase/supabase-js";
+import { useEffect, useState } from "react";
+import { useSessionContext } from "../../contexts/sessionContext";
+import supabase from "../../supabase";
+import { Order } from "../../types/db/dbTypes";
 
 const useGetClientOrders = () => {
   const { session } = useSessionContext();
@@ -13,10 +13,10 @@ const useGetClientOrders = () => {
   const getClientOrders = async () => {
     if (session) {
       let { data: order, error } = await supabase
-        .from('orders')
+        .from("orders")
         .select(`*`)
-        .eq('client_id', session.user?.id)
-        .order('created_at', { ascending: false });
+        .eq("client_id", session.user?.id)
+        .order("created_at", { ascending: false });
 
       error && setError(error);
 

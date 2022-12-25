@@ -1,5 +1,5 @@
-import { useDeletedServiceFromBasketContext } from '../../contexts/deletedServiceFromBasketContext';
-import supabase from '../../supabase';
+import { useDeletedServiceFromBasketContext } from "../../contexts/deletedServiceFromBasketContext";
+import supabase from "../../supabase";
 
 const useDeleteServiceFromBasket = () => {
   const { setDeletedService } = useDeletedServiceFromBasketContext();
@@ -9,7 +9,7 @@ const useDeleteServiceFromBasket = () => {
     serviceId: string
   ) => {
     const { data, error } = await supabase
-      .from('basket_has_services')
+      .from("basket_has_services")
       .delete()
       .match({ basket_id: basketId, service_id: serviceId })
       .select();
@@ -21,7 +21,6 @@ const useDeleteServiceFromBasket = () => {
     if (data) {
       setDeletedService(data[0]);
     }
-
   };
 
   return { deleteServiceFromBasket };

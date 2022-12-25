@@ -38,7 +38,7 @@ const useAddServiceToBasket = () => {
     }
     return false;
   };
-  
+
   const addToBasket = async (service: string, basketId = "") => {
     const { data, error } = await supabase
       .from("basket_has_services")

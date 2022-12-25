@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC } from "react";
 
 type ImageProps = {
   src: string;
@@ -6,6 +6,6 @@ type ImageProps = {
 };
 
 const Image: FC<ImageProps> = ({ src, alt }) => {
-  return <img src={src} alt={alt ?? src} className='w-full' />;
+  return <img src={src} alt={alt ?? src} className="w-full" />;
 };
 export default Image;

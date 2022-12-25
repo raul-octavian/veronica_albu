@@ -1,5 +1,5 @@
-import { PostgrestError, Session } from '@supabase/supabase-js';
-import { BasketHasService, BasketView } from './db/dbTypes';
+import { PostgrestError, Session } from "@supabase/supabase-js";
+import { BasketHasService, BasketView } from "./db/dbTypes";
 
 export type SetBasket = React.Dispatch<
   React.SetStateAction<BasketView[] | null>

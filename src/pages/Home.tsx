@@ -1,33 +1,33 @@
-import ArrowDown from '../components/icons/ArrowDown';
-import Logo from '../components/Logo/Logo';
-import PhyLogo from '../components/phyLogo/PhyLogo';
-import Portrait from '../assets/portrait.jpg';
-import TextBoxWithCtaAndImage from '../components/textBox/TextBoxWithCtaAndImage';
-import Testimonials from '../components/testimonials/Testimonials';
-import TextBoxHeader from '../components/textBox/TextBoxHeader';
-import MappingSprancene from '../assets/eyebrow-mapping.png';
-import NailShapes from '../assets/nail-shape.png';
-import PhyLogoImage from '../assets/PhyLogo.png';
-import Cupio from '../assets/logo_cupio_black.png';
-import Carousel from '../components/Carousel';
+import ArrowDown from "../components/icons/ArrowDown";
+import Logo from "../components/Logo/Logo";
+import PhyLogo from "../components/phyLogo/PhyLogo";
+import Portrait from "../assets/portrait.jpg";
+import TextBoxWithCtaAndImage from "../components/textBox/TextBoxWithCtaAndImage";
+import Testimonials from "../components/testimonials/Testimonials";
+import TextBoxHeader from "../components/textBox/TextBoxHeader";
+import MappingSprancene from "../assets/eyebrow-mapping.png";
+import NailShapes from "../assets/nail-shape.png";
+import PhyLogoImage from "../assets/PhyLogo.png";
+import Cupio from "../assets/logo_cupio_black.png";
+import Carousel from "../components/Carousel";
 
 const Home = () => {
   return (
     <>
-      <section className='flex flex-col justify-center pb-24 h-screen'>
+      <section className="flex flex-col justify-center pb-24 h-screen">
         <Logo />
-        <div className='text-accent-main flex justify-center'>
+        <div className="text-accent-main flex justify-center">
           <ArrowDown />
         </div>
       </section>
-      <div className='bg-accent-main py-4'>
+      <div className="bg-accent-main py-4">
         <PhyLogo />
       </div>
 
       <TextBoxWithCtaAndImage
-        ctaValue='Programeaza-te'
+        ctaValue="Programeaza-te"
         image={Portrait}
-        title='Eu in cateva cuvinte'
+        title="Eu in cateva cuvinte"
       >
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis
@@ -45,13 +45,13 @@ const Home = () => {
       </TextBoxWithCtaAndImage>
 
       <TextBoxWithCtaAndImage>
-        <p className='tracking-wider leading-6 my-4'>
+        <p className="tracking-wider leading-6 my-4">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis
           distinctio incidunt optio ea deleniti expedita aspernatur? Non odit ea
           qui, dolor laborum suscipit voluptate dignissimos consequuntur nemo
           neque saepe in?
         </p>
-        <p className='tracking-wider leading-6 my-4 last:my-0'>
+        <p className="tracking-wider leading-6 my-4 last:my-0">
           Impedit veritatis minima fugit sequi dignissimos vitae, suscipit nihil
           architecto dolor asperiores omnis necessitatibus ea. Voluptatibus,
           quaerat. Sit voluptatem, quae amet inventore non debitis similique
@@ -63,13 +63,13 @@ const Home = () => {
       <Testimonials />
 
       <TextBoxHeader>
-        <h2 className='text-2xl'>Servicii</h2>
+        <h2 className="text-2xl">Servicii</h2>
       </TextBoxHeader>
 
       <TextBoxWithCtaAndImage
         image={MappingSprancene}
-        title='Mapping sprancene gratuit'
-        ctaValue='Programeaza-te'
+        title="Mapping sprancene gratuit"
+        ctaValue="Programeaza-te"
       >
         <p>
           Toti ne nastem cu spracenele perfetc simetrice dar timpul, gravitatia
@@ -85,8 +85,8 @@ const Home = () => {
 
       <TextBoxWithCtaAndImage
         image={NailShapes}
-        title='Consultanta unghii gratuit'
-        ctaValue='Programeaza-te'
+        title="Consultanta unghii gratuit"
+        ctaValue="Programeaza-te"
       >
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae,
@@ -105,8 +105,8 @@ const Home = () => {
           dolorem.
         </p>
       </TextBoxWithCtaAndImage>
-      <TextBoxWithCtaAndImage title='Alte servicii' ctaValue='Programeaza-te'>
-        <p className='md:w-1/2 md:mx-auto'>
+      <TextBoxWithCtaAndImage title="Alte servicii" ctaValue="Programeaza-te">
+        <p className="md:w-1/2 md:mx-auto">
           Va invit sa cititi mai multe despre serviciile pe care le ofer pe
           pagina servicii, o sas gesttoi acolo toate informatiile de care ai
           nevoi. In cazul in care nu gasesti tot ceea ce te intereseaza te rog
@@ -114,20 +114,20 @@ const Home = () => {
         </p>
       </TextBoxWithCtaAndImage>
 
-      <TextBoxWithCtaAndImage title='Produse' ctaValue='Programeaza-te'>
-        <p className='md:w-1/2 md:mx-auto'>
+      <TextBoxWithCtaAndImage title="Produse" ctaValue="Programeaza-te">
+        <p className="md:w-1/2 md:mx-auto">
           Lucararile mele sunt sustiunte de cele mai bune branduri din Romania
           si din strainatate. In permanenta caut sa gasesc cele mai noi is mai
           bune produse pentru a oferi cele mai bune servicii
         </p>
       </TextBoxWithCtaAndImage>
-      <TextBoxWithCtaAndImage title='Produse cu care lucrez'>
-        <div className='min-h-32 flex gap-6 justify-center py-6 flex-wrap'>
-          <img src={PhyLogoImage} alt='logo' className='h-full' />
-          <img src={Cupio} alt='logo' className='h-full' />
+      <TextBoxWithCtaAndImage title="Produse cu care lucrez">
+        <div className="min-h-32 flex gap-6 justify-center py-6 flex-wrap">
+          <img src={PhyLogoImage} alt="logo" className="h-full" />
+          <img src={Cupio} alt="logo" className="h-full" />
         </div>
       </TextBoxWithCtaAndImage>
-      <TextBoxWithCtaAndImage title='Lucrarile mele'>
+      <TextBoxWithCtaAndImage title="Lucrarile mele">
         <Carousel />
       </TextBoxWithCtaAndImage>
     </>

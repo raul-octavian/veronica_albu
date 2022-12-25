@@ -1,5 +1,4 @@
-import { FC } from 'react';
-
+import { FC } from "react";
 
 type DisclaimerProps = {
   name: string;
@@ -10,15 +9,15 @@ type DisclaimerProps = {
 const Disclaimer: FC<DisclaimerProps> = ({ id, name, onMainChangeHandler }) => {
   return (
     <>
-      <div className='flex justify-start align-middle gap-2'>
+      <div className="flex justify-start align-middle gap-2">
         <input
-          type='checkbox'
+          type="checkbox"
           name={id}
           id={id}
-          className='accent-accent-main'
+          className="accent-accent-main"
           onChange={onMainChangeHandler}
         />
-        <label htmlFor={id} className='text-left tracking-wider font-body'>
+        <label htmlFor={id} className="text-left tracking-wider font-body">
           {name}
         </label>
       </div>

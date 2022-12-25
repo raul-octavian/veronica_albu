@@ -1,13 +1,13 @@
-import Portrait from '../assets/portrait.jpg';
-import TextBoxContainer from '../components/textBox/TextBoxContainer';
-import TextBoxWithCtaAndImage from '../components/textBox/TextBoxWithCtaAndImage';
+import Portrait from "../assets/portrait.jpg";
+import TextBoxContainer from "../components/textBox/TextBoxContainer";
+import TextBoxWithCtaAndImage from "../components/textBox/TextBoxWithCtaAndImage";
 const About = () => {
   return (
     <>
       <TextBoxWithCtaAndImage
-        ctaValue='Programeaza-te'
+        ctaValue="Programeaza-te"
         image={Portrait}
-        title='Eu in cateva cuvinte'
+        title="Eu in cateva cuvinte"
       >
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis
@@ -25,7 +25,7 @@ const About = () => {
       </TextBoxWithCtaAndImage>
 
       <TextBoxContainer>
-        <TextBoxWithCtaAndImage title='Misiunea mea' w='full' lgW='[60%]'>
+        <TextBoxWithCtaAndImage title="Misiunea mea" w="full" lgW="[60%]">
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis
             distinctio incidunt optio ea deleniti expedita aspernatur? Non odit
@@ -34,10 +34,10 @@ const About = () => {
           </p>
         </TextBoxWithCtaAndImage>
         <TextBoxWithCtaAndImage
-          ctaValue='Programeaza-te'
-          title='Valorile mele'
-          w='full'
-          lgW='[60%]'
+          ctaValue="Programeaza-te"
+          title="Valorile mele"
+          w="full"
+          lgW="[60%]"
         >
           <p>
             Impedit veritatis minima fugit sequi dignissimos vitae, suscipit

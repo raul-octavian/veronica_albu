@@ -1,5 +1,5 @@
-import { Session } from '@supabase/supabase-js';
-import { useState } from 'react';
+import { Session } from "@supabase/supabase-js";
+import { useState } from "react";
 
 const useSession = () => {
   const [session, setSession] = useState<Session>({} as Session);

@@ -1,7 +1,7 @@
-import { FC, useEffect } from 'react';
-import useGetOrderStatus from '../../hooks/query/useGetOrderStatus';
-import { Order } from '../../types/db/dbTypes';
-import OrderContainer from './OrderContainer';
+import { FC, useEffect } from "react";
+import useGetOrderStatus from "../../hooks/query/useGetOrderStatus";
+import { Order } from "../../types/db/dbTypes";
+import OrderContainer from "./OrderContainer";
 
 type OrderListProps = {
   orders: Order[];

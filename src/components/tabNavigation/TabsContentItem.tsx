@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC } from "react";
 
 type TabsContentItemProps = {
   children: React.ReactNode | React.ReactNode[];
@@ -12,7 +12,7 @@ const TabsContentItem: FC<TabsContentItemProps> = ({
   tabNr,
 }) => {
   return (
-    <div className={openTab === tabNr ? 'block' : 'hidden'} id={`link${tabNr}`}>
+    <div className={openTab === tabNr ? "block" : "hidden"} id={`link${tabNr}`}>
       {children}
     </div>
   );
