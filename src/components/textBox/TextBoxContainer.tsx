@@ -9,7 +9,7 @@ type TextBoxContainerProps = {
 const TextBoxContainer: FC<TextBoxContainerProps> = ({
   children,
   w = "[80%]",
-  lgW = 'full',
+  lgW = "full",
 }) => {
   return (
     <div className="mt-10">
@@ -19,6 +19,6 @@ const TextBoxContainer: FC<TextBoxContainerProps> = ({
         {children}
       </div>
     </div>
-  );;;
+  );
 };
 export default TextBoxContainer;
