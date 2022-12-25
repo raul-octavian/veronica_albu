@@ -19,6 +19,6 @@ const TextBoxContainer: FC<TextBoxContainerProps> = ({
         {children}
       </div>
     </div>
-  );
+  );;;
 };
 export default TextBoxContainer;
