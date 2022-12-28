@@ -3,7 +3,7 @@ import LogoWithText from "../icons/LogoWithText";
 const Logo: FC = () => {
   return (
     <div className="items-center flex-1 shrink-1 flex flex-col justify-center bg-gradient-radial from-secondary-main via-secondary-main to-transparent">
-      <div className="flex justify-center items-center ">
+      <div className="flex justify-center items-center max-w-[80%]">
         <LogoWithText />
       </div>
       <div className="font-extraThin text-center">
